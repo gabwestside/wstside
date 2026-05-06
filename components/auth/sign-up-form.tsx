@@ -83,7 +83,7 @@ export function SignUpForm({
           data: {
             name: trimmedName,
           },
-          emailRedirectTo: `${window.location.origin}/protected`,
+          emailRedirectTo: `${window.location.origin}/dashboard`,
         },
       })
 

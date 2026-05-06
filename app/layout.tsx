@@ -1,50 +1,22 @@
-import { cn } from '@/lib/utils'
 import type { Metadata } from 'next'
-import { ThemeProvider } from 'next-themes'
-import { Geist, JetBrains_Mono } from 'next/font/google'
+import type { ReactNode } from 'react'
+
 import './globals.css'
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-})
-
-const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : 'http://localhost:3000'
-
 export const metadata: Metadata = {
-  metadataBase: new URL(defaultUrl),
-  title: 'Next.js and Supabase Starter Kit',
-  description: 'The fastest way to build apps with Next.js and Supabase',
+  title: {
+    default: 'WstSide',
+    template: '%s | WstSide',
+  },
+  description:
+    'Sistema pessoal para organizar finanças, rotina, metas e evolução.',
 }
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  display: 'swap',
-  subsets: ['latin'],
-})
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html
-      lang='en'
-      suppressHydrationWarning
-      className={cn('font-mono', jetbrainsMono.variable)}
-    >
-      <body className={`${geistSans.className} antialiased`}>
-        <ThemeProvider
-          attribute='class'
-          defaultTheme='system'
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+    <html lang='pt-BR'>
+      <body className='min-h-svh bg-[#f4fbf7] text-slate-950 antialiased'>
+        {children}
       </body>
     </html>
   )

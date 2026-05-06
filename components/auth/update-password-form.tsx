@@ -57,7 +57,7 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
         throw error
       }
 
-      router.push('/protected')
+      router.push('/dashboard')
     } catch {
       setError(
         'Não foi possível atualizar sua senha. Solicite um novo link de recuperação e tente novamente.',
