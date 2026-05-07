@@ -52,7 +52,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
   const pathname = usePathname()
 
   return (
-    <aside className='fixed inset-y-0 left-0 z-40 hidden w-72 border-r border-emerald-100/80 bg-white/80 px-5 py-6 shadow-2xl shadow-emerald-950/5 backdrop-blur-xl lg:flex lg:flex-col'>
+    <aside className='fixed inset-y-0 left-0 z-40 hidden w-72 border-r border-emerald-100/80 ws-sidebar px-5 py-6 shadow-2xl shadow-emerald-950/5 backdrop-blur-xl lg:flex lg:flex-col'>
       <div className='flex items-center gap-3 px-2'>
         <div className='flex size-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-black text-white shadow-lg shadow-slate-950/15'>
           W
@@ -68,7 +68,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
         </div>
       </div>
 
-      <div className='mt-8 rounded-[1.75rem] border border-emerald-100 bg-emerald-50/70 p-4'>
+      <div className='mt-8 rounded-[1.75rem] border ws-border bg-emerald-50/70 p-4'>
         <div className='flex items-center gap-3'>
           <div className='flex size-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-sm font-black text-white'>
             {user.initials}
@@ -96,7 +96,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
               className={cn(
                 'group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition',
                 isActive
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20'
+                  ? 'ws-primary shadow-lg shadow-emerald-600/20'
                   : 'text-slate-600 hover:bg-emerald-50 hover:text-emerald-700',
               )}
             >
@@ -122,10 +122,10 @@ export function AppSidebar({ user }: AppSidebarProps) {
             </div>
 
             <div>
-              <p className='text-sm font-bold text-slate-950'>
+              <p className='text-sm font-bold ws-heading'>
                 V1 em progresso
               </p>
-              <p className='text-xs text-slate-500'>
+              <p className='text-xs ws-muted'>
                 Login, dashboard, finanças e rotina.
               </p>
             </div>

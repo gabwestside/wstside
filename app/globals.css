@@ -86,3 +86,260 @@
     @apply font-mono;
   }
 }
+
+.theme-wstside-light {
+  --background: #f4fbf7;
+  --foreground: #0f172a;
+  --card: rgb(255 255 255 / 0.88);
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #059669;
+  --primary-foreground: #ffffff;
+  --secondary: #ecfdf5;
+  --secondary-foreground: #065f46;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: #d1fae5;
+  --accent-foreground: #065f46;
+  --destructive: #dc2626;
+  --border: rgb(16 185 129 / 0.18);
+  --input: #e2e8f0;
+  --ring: #10b981;
+
+  --ws-app-bg: #f4fbf7;
+  --ws-surface: rgb(255 255 255 / 0.86);
+  --ws-surface-solid: #ffffff;
+  --ws-surface-muted: rgb(248 250 252 / 0.88);
+  --ws-sidebar: rgb(255 255 255 / 0.86);
+  --ws-border: rgb(16 185 129 / 0.18);
+  --ws-heading: #0f172a;
+  --ws-muted: #64748b;
+  --ws-primary: #059669;
+  --ws-primary-hover: #047857;
+  --ws-primary-soft: #ecfdf5;
+  --ws-primary-text: #047857;
+  --ws-danger: #dc2626;
+  --ws-warning: #ea580c;
+  --ws-info: #2563eb;
+  --ws-shadow: rgb(6 78 59 / 0.08);
+  --ws-glow-1: rgb(110 231 183 / 0.3);
+  --ws-glow-2: rgb(45 212 191 / 0.25);
+}
+
+.theme-wstside-dark {
+  --background: #020617;
+  --foreground: #e5e7eb;
+  --card: rgb(15 23 42 / 0.86);
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #10b981;
+  --primary-foreground: #022c22;
+  --secondary: #064e3b;
+  --secondary-foreground: #d1fae5;
+  --muted: #111827;
+  --muted-foreground: #94a3b8;
+  --accent: #065f46;
+  --accent-foreground: #d1fae5;
+  --destructive: #ef4444;
+  --border: rgb(148 163 184 / 0.18);
+  --input: rgb(148 163 184 / 0.24);
+  --ring: #34d399;
+
+  --ws-app-bg: #020617;
+  --ws-surface: rgb(15 23 42 / 0.86);
+  --ws-surface-solid: #0f172a;
+  --ws-surface-muted: rgb(15 23 42 / 0.7);
+  --ws-sidebar: rgb(2 6 23 / 0.88);
+  --ws-border: rgb(148 163 184 / 0.18);
+  --ws-heading: #f8fafc;
+  --ws-muted: #94a3b8;
+  --ws-primary: #10b981;
+  --ws-primary-hover: #34d399;
+  --ws-primary-soft: rgb(16 185 129 / 0.12);
+  --ws-primary-text: #6ee7b7;
+  --ws-danger: #f87171;
+  --ws-warning: #fb923c;
+  --ws-info: #60a5fa;
+  --ws-shadow: rgb(0 0 0 / 0.35);
+  --ws-glow-1: rgb(16 185 129 / 0.2);
+  --ws-glow-2: rgb(20 184 166 / 0.16);
+}
+
+.theme-christmas {
+  --background: #fff7ed;
+  --foreground: #1c1917;
+  --card: rgb(255 255 255 / 0.9);
+  --card-foreground: #1c1917;
+  --popover: #ffffff;
+  --popover-foreground: #1c1917;
+  --primary: #166534;
+  --primary-foreground: #ffffff;
+  --secondary: #fee2e2;
+  --secondary-foreground: #991b1b;
+  --muted: #ffedd5;
+  --muted-foreground: #78716c;
+  --accent: #fef3c7;
+  --accent-foreground: #92400e;
+  --destructive: #b91c1c;
+  --border: rgb(185 28 28 / 0.16);
+  --input: #fed7aa;
+  --ring: #16a34a;
+
+  --ws-app-bg: #fff7ed;
+  --ws-surface: rgb(255 255 255 / 0.88);
+  --ws-surface-solid: #ffffff;
+  --ws-surface-muted: rgb(255 237 213 / 0.72);
+  --ws-sidebar: rgb(255 255 255 / 0.88);
+  --ws-border: rgb(185 28 28 / 0.16);
+  --ws-heading: #1c1917;
+  --ws-muted: #78716c;
+  --ws-primary: #166534;
+  --ws-primary-hover: #14532d;
+  --ws-primary-soft: #dcfce7;
+  --ws-primary-text: #166534;
+  --ws-danger: #b91c1c;
+  --ws-warning: #d97706;
+  --ws-info: #2563eb;
+  --ws-shadow: rgb(120 53 15 / 0.1);
+  --ws-glow-1: rgb(34 197 94 / 0.22);
+  --ws-glow-2: rgb(239 68 68 / 0.18);
+}
+
+.theme-space-odyssey {
+  --background: #020617;
+  --foreground: #e0f2fe;
+  --card: rgb(15 23 42 / 0.82);
+  --card-foreground: #e0f2fe;
+  --popover: #0f172a;
+  --popover-foreground: #e0f2fe;
+  --primary: #7c3aed;
+  --primary-foreground: #ffffff;
+  --secondary: #0e7490;
+  --secondary-foreground: #ecfeff;
+  --muted: #111827;
+  --muted-foreground: #93c5fd;
+  --accent: #06b6d4;
+  --accent-foreground: #082f49;
+  --destructive: #fb7185;
+  --border: rgb(125 211 252 / 0.18);
+  --input: rgb(125 211 252 / 0.22);
+  --ring: #22d3ee;
+
+  --ws-app-bg: #020617;
+  --ws-surface: rgb(15 23 42 / 0.82);
+  --ws-surface-solid: #0f172a;
+  --ws-surface-muted: rgb(30 41 59 / 0.72);
+  --ws-sidebar: rgb(2 6 23 / 0.88);
+  --ws-border: rgb(125 211 252 / 0.18);
+  --ws-heading: #e0f2fe;
+  --ws-muted: #93c5fd;
+  --ws-primary: #7c3aed;
+  --ws-primary-hover: #8b5cf6;
+  --ws-primary-soft: rgb(124 58 237 / 0.18);
+  --ws-primary-text: #c4b5fd;
+  --ws-danger: #fb7185;
+  --ws-warning: #fbbf24;
+  --ws-info: #22d3ee;
+  --ws-shadow: rgb(0 0 0 / 0.42);
+  --ws-glow-1: rgb(124 58 237 / 0.28);
+  --ws-glow-2: rgb(34 211 238 / 0.22);
+}
+
+.theme-spider {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --card: rgb(15 23 42 / 0.86);
+  --card-foreground: #f8fafc;
+  --popover: #0f172a;
+  --popover-foreground: #f8fafc;
+  --primary: #dc2626;
+  --primary-foreground: #ffffff;
+  --secondary: #1d4ed8;
+  --secondary-foreground: #dbeafe;
+  --muted: #111827;
+  --muted-foreground: #cbd5e1;
+  --accent: #2563eb;
+  --accent-foreground: #eff6ff;
+  --destructive: #ef4444;
+  --border: rgb(59 130 246 / 0.2);
+  --input: rgb(59 130 246 / 0.22);
+  --ring: #ef4444;
+
+  --ws-app-bg: #020617;
+  --ws-surface: rgb(15 23 42 / 0.86);
+  --ws-surface-solid: #0f172a;
+  --ws-surface-muted: rgb(30 41 59 / 0.72);
+  --ws-sidebar: rgb(2 6 23 / 0.9);
+  --ws-border: rgb(59 130 246 / 0.2);
+  --ws-heading: #f8fafc;
+  --ws-muted: #cbd5e1;
+  --ws-primary: #dc2626;
+  --ws-primary-hover: #ef4444;
+  --ws-primary-soft: rgb(37 99 235 / 0.18);
+  --ws-primary-text: #93c5fd;
+  --ws-danger: #ef4444;
+  --ws-warning: #f97316;
+  --ws-info: #3b82f6;
+  --ws-shadow: rgb(0 0 0 / 0.42);
+  --ws-glow-1: rgb(220 38 38 / 0.24);
+  --ws-glow-2: rgb(37 99 235 / 0.22);
+}
+
+@layer utilities {
+  .ws-app-bg {
+    background:
+      radial-gradient(circle at 12% 8%, var(--ws-glow-1), transparent 28%),
+      radial-gradient(circle at 88% 82%, var(--ws-glow-2), transparent 28%),
+      var(--ws-app-bg);
+    color: var(--ws-heading);
+  }
+
+  .ws-surface {
+    background: var(--ws-surface);
+    border-color: var(--ws-border);
+    box-shadow: 0 24px 80px var(--ws-shadow);
+  }
+
+  .ws-surface-solid {
+    background: var(--ws-surface-solid);
+    border-color: var(--ws-border);
+  }
+
+  .ws-surface-muted {
+    background: var(--ws-surface-muted);
+    border-color: var(--ws-border);
+  }
+
+  .ws-sidebar {
+    background: var(--ws-sidebar);
+    border-color: var(--ws-border);
+  }
+
+  .ws-heading {
+    color: var(--ws-heading);
+  }
+
+  .ws-muted {
+    color: var(--ws-muted);
+  }
+
+  .ws-primary {
+    background: var(--ws-primary);
+    color: var(--primary-foreground);
+  }
+
+  .ws-primary:hover {
+    background: var(--ws-primary-hover);
+  }
+
+  .ws-primary-soft {
+    background: var(--ws-primary-soft);
+    color: var(--ws-primary-text);
+  }
+
+  .ws-border {
+    border-color: var(--ws-border);
+  }
+}

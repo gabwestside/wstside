@@ -2,8 +2,8 @@
 
 import type { ReactNode } from 'react'
 
-import { AppSidebar } from './app-sidebar'
-import { BottomNav } from './bottom-nav'
+import { AppSidebar } from '@/components/layout/app-sidebar'
+import { BottomNav } from '@/components/layout/bottom-nav'
 
 export type AppUser = {
   name: string
@@ -18,7 +18,7 @@ type AppShellProps = {
 
 export function AppShell({ children, user }: AppShellProps) {
   return (
-    <div className='min-h-svh bg-[#f4fbf7]'>
+    <div className='min-h-svh ws-app-bg'>
       <AppSidebar user={user} />
 
       <div className='lg:pl-72'>
