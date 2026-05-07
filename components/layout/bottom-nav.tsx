@@ -44,7 +44,7 @@ export function BottomNav() {
   const pathname = usePathname()
 
   return (
-    <nav className='fixed inset-x-3 bottom-3 z-50 rounded-[2rem] border border-emerald-100 bg-white/90 p-2 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl lg:hidden'>
+    <nav className='fixed inset-x-3 bottom-3 z-50 rounded-[2rem] border ws-sidebar ws-border p-2 shadow-2xl backdrop-blur-xl lg:hidden'>
       <div className='grid grid-cols-5 gap-1'>
         {navigationItems.map((item) => {
           const Icon = item.icon
@@ -56,13 +56,20 @@ export function BottomNav() {
               key={item.href}
               href={item.href}
               className={cn(
-                'flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-[0.68rem] font-bold transition',
+                'group flex min-h-14 flex-col items-center justify-center gap-1 rounded-2xl text-[0.68rem] font-bold transition',
                 isActive
-                  ? 'bg-emerald-600 text-white shadow-lg shadow-emerald-600/20'
-                  : 'text-slate-500 hover:bg-emerald-50 hover:text-emerald-700',
+                  ? 'ws-primary shadow-lg'
+                  : 'ws-muted hover:bg-[var(--ws-primary-soft)] hover:text-[var(--ws-primary-text)]',
               )}
             >
-              <Icon className='size-5' />
+              <Icon
+                className={cn(
+                  'size-5 transition',
+                  isActive
+                    ? 'text-current'
+                    : 'text-[var(--ws-muted)] group-hover:text-[var(--ws-primary-text)]',
+                )}
+              />
               <span>{item.label}</span>
             </Link>
           )

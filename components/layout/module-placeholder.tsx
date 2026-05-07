@@ -24,23 +24,23 @@ export function ModulePlaceholder({
 }: ModulePlaceholderProps) {
   return (
     <div className='flex min-h-[calc(100svh-8rem)] items-center justify-center'>
-      <Card className='w-full max-w-xl rounded-[2rem] border-emerald-100 bg-white/85 shadow-2xl shadow-emerald-950/5'>
+      <Card className='w-full max-w-xl rounded-[2rem] border ws-border ws-surface shadow-2xl'>
         <CardHeader className='space-y-4'>
           <div className='flex items-center justify-between'>
-            <div className='flex size-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/20'>
+            <div className='flex size-12 items-center justify-center rounded-2xl ws-primary shadow-lg'>
               <Construction className='size-6' />
             </div>
 
-            <Badge className='rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 hover:bg-emerald-100'>
+            <Badge className='rounded-full border ws-border ws-primary-soft px-3 py-1 hover:bg-[var(--ws-primary-soft)]'>
               {badge}
             </Badge>
           </div>
 
           <div>
-            <CardTitle className='text-3xl font-black tracking-tight text-slate-950'>
+            <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
               {title}
             </CardTitle>
-            <CardDescription className='mt-2 text-base leading-7 text-slate-500'>
+            <CardDescription className='mt-2 text-base leading-7 ws-muted'>
               {description}
             </CardDescription>
           </div>
@@ -49,7 +49,7 @@ export function ModulePlaceholder({
         <CardContent>
           <Button
             asChild
-            className='h-12 w-full rounded-2xl bg-emerald-600 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-700'
+            className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg'
           >
             <Link href='/dashboard'>
               <ArrowLeft className='mr-2 size-4' />

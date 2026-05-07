@@ -52,33 +52,29 @@ export function AppSidebar({ user }: AppSidebarProps) {
   const pathname = usePathname()
 
   return (
-    <aside className='fixed inset-y-0 left-0 z-40 hidden w-72 border-r border-emerald-100/80 ws-sidebar px-5 py-6 shadow-2xl shadow-emerald-950/5 backdrop-blur-xl lg:flex lg:flex-col'>
+    <aside className='fixed inset-y-0 left-0 z-40 hidden w-72 border-r ws-sidebar ws-border px-5 py-6 shadow-2xl backdrop-blur-xl lg:flex lg:flex-col'>
       <div className='flex items-center gap-3 px-2'>
-        <div className='flex size-11 items-center justify-center rounded-2xl bg-slate-950 text-sm font-black text-white shadow-lg shadow-slate-950/15'>
+        <div className='flex size-11 items-center justify-center rounded-2xl ws-primary text-sm font-black shadow-lg'>
           W
         </div>
 
         <div>
-          <p className='text-sm font-black uppercase tracking-[0.22em] text-slate-950'>
+          <p className='text-sm font-black uppercase tracking-[0.22em] ws-heading'>
             WstSide
           </p>
-          <p className='text-xs font-medium text-slate-500'>
-            Life Operating System
-          </p>
+          <p className='text-xs font-medium ws-muted'>Life Operating System</p>
         </div>
       </div>
 
-      <div className='mt-8 rounded-[1.75rem] border ws-border bg-emerald-50/70 p-4'>
+      <div className='mt-8 rounded-[1.75rem] border ws-border ws-surface-muted p-4'>
         <div className='flex items-center gap-3'>
-          <div className='flex size-11 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-sm font-black text-white'>
+          <div className='flex size-11 shrink-0 items-center justify-center rounded-2xl ws-primary text-sm font-black shadow-sm'>
             {user.initials}
           </div>
 
           <div className='min-w-0'>
-            <p className='truncate text-sm font-bold text-slate-950'>
-              {user.name}
-            </p>
-            <p className='truncate text-xs text-slate-500'>{user.email}</p>
+            <p className='truncate text-sm font-bold ws-heading'>{user.name}</p>
+            <p className='truncate text-xs ws-muted'>{user.email}</p>
           </div>
         </div>
       </div>
@@ -96,16 +92,16 @@ export function AppSidebar({ user }: AppSidebarProps) {
               className={cn(
                 'group flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold transition',
                 isActive
-                  ? 'ws-primary shadow-lg shadow-emerald-600/20'
-                  : 'text-slate-600 hover:bg-emerald-50 hover:text-emerald-700',
+                  ? 'ws-primary shadow-lg'
+                  : 'ws-muted hover:bg-[var(--ws-primary-soft)] hover:text-[var(--ws-primary-text)]',
               )}
             >
               <Icon
                 className={cn(
                   'size-5 transition',
                   isActive
-                    ? 'text-white'
-                    : 'text-slate-400 group-hover:text-emerald-600',
+                    ? 'text-current'
+                    : 'text-[var(--ws-muted)] group-hover:text-[var(--ws-primary-text)]',
                 )}
               />
               {item.label}
@@ -115,16 +111,14 @@ export function AppSidebar({ user }: AppSidebarProps) {
       </nav>
 
       <div className='mt-auto grid gap-4'>
-        <div className='rounded-[1.75rem] border border-slate-100 bg-slate-50 p-4'>
+        <div className='rounded-[1.75rem] border ws-border ws-surface-muted p-4'>
           <div className='flex items-center gap-3'>
-            <div className='flex size-10 items-center justify-center rounded-2xl bg-white text-emerald-600 shadow-sm'>
+            <div className='flex size-10 items-center justify-center rounded-2xl ws-surface-solid text-[var(--ws-primary)] shadow-sm'>
               <Sparkles className='size-5' />
             </div>
 
             <div>
-              <p className='text-sm font-bold ws-heading'>
-                V1 em progresso
-              </p>
+              <p className='text-sm font-bold ws-heading'>V1 em progresso</p>
               <p className='text-xs ws-muted'>
                 Login, dashboard, finanças e rotina.
               </p>
@@ -135,7 +129,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
         <form action={signOutAction}>
           <button
             type='submit'
-            className='flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold text-slate-500 transition hover:bg-red-50 hover:text-red-600'
+            className='flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold ws-muted transition hover:bg-[color-mix(in_srgb,var(--ws-danger)_12%,transparent)] hover:text-[var(--ws-danger)]'
           >
             <LogOut className='size-5' />
             Sair
