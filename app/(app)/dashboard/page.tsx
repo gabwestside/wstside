@@ -44,15 +44,15 @@ export default async function DashboardPage() {
     <div className='space-y-6'>
       <section className='flex flex-col justify-between gap-4 lg:flex-row lg:items-end'>
         <div className='space-y-2'>
-          <Badge className='rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 hover:bg-emerald-100'>
+          <Badge className='rounded-full border ws-border ws-primary-soft px-3 py-1 hover:bg-[var(--ws-primary-soft)]'>
             Dashboard inicial
           </Badge>
 
           <div>
-            <h1 className='text-3xl font-black tracking-tight text-slate-950 sm:text-4xl'>
+            <h1 className='text-3xl font-black tracking-tight ws-heading sm:text-4xl'>
               Seu painel WstSide
             </h1>
-            <p className='mt-2 text-sm font-medium capitalize text-slate-500'>
+            <p className='mt-2 text-sm font-medium capitalize ws-muted'>
               {today}
             </p>
           </div>
@@ -61,7 +61,7 @@ export default async function DashboardPage() {
         <div className='flex gap-3'>
           <Button
             asChild
-            className='h-11 rounded-2xl bg-emerald-600 px-5 font-semibold text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-700'
+            className='h-11 rounded-2xl ws-primary px-5 font-semibold shadow-lg'
           >
             <Link href='/finances'>
               <Plus className='mr-2 size-4' />
@@ -72,93 +72,114 @@ export default async function DashboardPage() {
       </section>
 
       <section className='grid gap-4 md:grid-cols-2 xl:grid-cols-4'>
-        <Card className='rounded-[2rem] border-emerald-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-emerald-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-primary-text)]'>
                 Patrimônio atual
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 R$ 0,00
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600'>
+            <div className='flex size-11 items-center justify-center rounded-2xl ws-primary-soft'>
               <WalletCards className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Comece cadastrando suas contas, reservas ou investimentos.
             </p>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-blue-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-blue-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-info)]'>
                 Receitas do mês
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 R$ 0,00
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600'>
+            <div
+              className='flex size-11 items-center justify-center rounded-2xl'
+              style={{
+                background:
+                  'color-mix(in srgb, var(--ws-info) 14%, transparent)',
+                color: 'var(--ws-info)',
+              }}
+            >
               <TrendingUp className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Entradas financeiras aparecerão aqui.
             </p>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-red-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-red-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-danger)]'>
                 Despesas do mês
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 R$ 0,00
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-red-50 text-red-600'>
+            <div
+              className='flex size-11 items-center justify-center rounded-2xl'
+              style={{
+                background:
+                  'color-mix(in srgb, var(--ws-danger) 14%, transparent)',
+                color: 'var(--ws-danger)',
+              }}
+            >
               <TrendingDown className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Saídas financeiras aparecerão aqui.
             </p>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-orange-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-orange-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-warning)]'>
                 Dias invicto
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 0 dias
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-orange-50 text-orange-600'>
+            <div
+              className='flex size-11 items-center justify-center rounded-2xl'
+              style={{
+                background:
+                  'color-mix(in srgb, var(--ws-warning) 14%, transparent)',
+                color: 'var(--ws-warning)',
+              }}
+            >
               <Flame className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Seu streak começa quando a rotina estiver ativa.
             </p>
           </CardContent>
@@ -166,55 +187,65 @@ export default async function DashboardPage() {
       </section>
 
       <section className='grid gap-4 xl:grid-cols-[1.2fr_0.8fr]'>
-        <Card className='rounded-[2rem] border-slate-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader>
             <div className='flex items-center justify-between gap-3'>
               <div>
-                <CardTitle className='text-xl font-black text-slate-950'>
+                <CardTitle className='text-xl font-black ws-heading'>
                   Resumo mensal
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className='ws-muted'>
                   Visão inicial do seu fluxo financeiro.
                 </CardDescription>
               </div>
 
-              <Badge variant='outline' className='rounded-full'>
+              <Badge
+                variant='outline'
+                className='rounded-full border ws-border ws-surface-muted ws-muted'
+              >
                 V1
               </Badge>
             </div>
           </CardHeader>
 
           <CardContent className='grid gap-4 md:grid-cols-3'>
-            <div className='rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5'>
-              <p className='text-sm font-bold text-slate-500'>Saldo do mês</p>
-              <p className='mt-2 text-2xl font-black text-slate-950'>R$ 0,00</p>
+            <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
+              <p className='text-sm font-bold ws-muted'>Saldo do mês</p>
+              <p className='mt-2 text-2xl font-black ws-heading'>R$ 0,00</p>
             </div>
 
-            <div className='rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5'>
-              <p className='text-sm font-bold text-slate-500'>Economia</p>
-              <p className='mt-2 text-2xl font-black text-slate-950'>0%</p>
+            <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
+              <p className='text-sm font-bold ws-muted'>Economia</p>
+              <p className='mt-2 text-2xl font-black ws-heading'>0%</p>
             </div>
 
-            <div className='rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5'>
-              <p className='text-sm font-bold text-slate-500'>Registros</p>
-              <p className='mt-2 text-2xl font-black text-slate-950'>0</p>
+            <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
+              <p className='text-sm font-bold ws-muted'>Registros</p>
+              <p className='mt-2 text-2xl font-black ws-heading'>0</p>
             </div>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-slate-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader>
             <div className='flex items-center justify-between gap-3'>
               <div>
-                <CardTitle className='text-xl font-black text-slate-950'>
+                <CardTitle className='text-xl font-black ws-heading'>
                   Rotina de hoje
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className='ws-muted'>
                   Progresso diário dos hábitos principais.
                 </CardDescription>
               </div>
 
-              <div className='flex size-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600'>
+              <div
+                className='flex size-11 items-center justify-center rounded-2xl'
+                style={{
+                  background:
+                    'color-mix(in srgb, var(--ws-info) 14%, transparent)',
+                  color: 'var(--ws-info)',
+                }}
+              >
                 <CalendarCheck2 className='size-5' />
               </div>
             </div>
@@ -222,8 +253,8 @@ export default async function DashboardPage() {
 
           <CardContent className='space-y-4'>
             <div className='flex items-center justify-between text-sm'>
-              <span className='font-bold text-slate-700'>Concluído</span>
-              <span className='font-black text-slate-950'>0%</span>
+              <span className='font-bold ws-heading'>Concluído</span>
+              <span className='font-black ws-heading'>0%</span>
             </div>
 
             <Progress value={0} />
@@ -231,7 +262,7 @@ export default async function DashboardPage() {
             <Button
               asChild
               variant='outline'
-              className='h-11 w-full rounded-2xl border-slate-200 bg-white font-semibold'
+              className='h-11 w-full rounded-2xl border ws-border ws-surface-solid font-semibold ws-heading hover:bg-[var(--ws-primary-soft)] hover:text-[var(--ws-primary-text)]'
             >
               <Link href='/routine'>
                 Criar rotina
@@ -243,30 +274,28 @@ export default async function DashboardPage() {
       </section>
 
       <section className='grid gap-4 xl:grid-cols-[0.8fr_1.2fr]'>
-        <Card className='rounded-[2rem] border-slate-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader>
             <div className='flex items-center justify-between gap-3'>
               <div>
-                <CardTitle className='text-xl font-black text-slate-950'>
+                <CardTitle className='text-xl font-black ws-heading'>
                   Metas financeiras
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className='ws-muted'>
                   Suas metas simples aparecerão aqui.
                 </CardDescription>
               </div>
 
-              <div className='flex size-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600'>
+              <div className='flex size-11 items-center justify-center rounded-2xl ws-primary-soft'>
                 <Goal className='size-5' />
               </div>
             </div>
           </CardHeader>
 
           <CardContent className='space-y-4'>
-            <div className='rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5'>
-              <p className='text-sm font-bold text-slate-950'>
-                Nenhuma meta ativa
-              </p>
-              <p className='mt-1 text-sm leading-6 text-slate-500'>
+            <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
+              <p className='text-sm font-bold ws-heading'>Nenhuma meta ativa</p>
+              <p className='mt-1 text-sm leading-6 ws-muted'>
                 Crie sua primeira meta para acompanhar progresso e prazo.
               </p>
             </div>
@@ -274,7 +303,7 @@ export default async function DashboardPage() {
             <Button
               asChild
               variant='outline'
-              className='h-11 w-full rounded-2xl border-slate-200 bg-white font-semibold'
+              className='h-11 w-full rounded-2xl border ws-border ws-surface-solid font-semibold ws-heading hover:bg-[var(--ws-primary-soft)] hover:text-[var(--ws-primary-text)]'
             >
               <Link href='/goals'>
                 Criar meta
@@ -284,12 +313,12 @@ export default async function DashboardPage() {
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-emerald-100 bg-emerald-950 text-white shadow-xl shadow-emerald-950/10'>
+        <Card className='rounded-[2rem] border ws-border ws-primary shadow-xl'>
           <CardHeader>
             <CardTitle className='text-xl font-black'>
               Próximos passos da V1
             </CardTitle>
-            <CardDescription className='text-emerald-50/70'>
+            <CardDescription className='opacity-75'>
               Complete essa base para liberar o dashboard real com dados.
             </CardDescription>
           </CardHeader>
@@ -298,15 +327,15 @@ export default async function DashboardPage() {
             {nextSteps.map((step, index) => (
               <div
                 key={step}
-                className='flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 p-4'
+                className='flex items-center gap-3 rounded-2xl border border-current/10 bg-current/10 p-4'
               >
-                <div className='flex size-9 shrink-0 items-center justify-center rounded-xl bg-white/10 text-sm font-black text-emerald-100'>
+                <div className='flex size-9 shrink-0 items-center justify-center rounded-xl bg-current/10 text-sm font-black'>
                   {index + 1}
                 </div>
 
-                <p className='text-sm font-semibold text-emerald-50'>{step}</p>
+                <p className='text-sm font-semibold'>{step}</p>
 
-                <CheckCircle2 className='ml-auto size-5 text-emerald-200/40' />
+                <CheckCircle2 className='ml-auto size-5 opacity-40' />
               </div>
             ))}
           </CardContent>

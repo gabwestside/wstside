@@ -1,4 +1,3 @@
-import { redirect } from 'next/navigation'
 import {
   ArrowUpRight,
   BadgeDollarSign,
@@ -6,6 +5,7 @@ import {
   PiggyBank,
   WalletCards,
 } from 'lucide-react'
+import { redirect } from 'next/navigation'
 
 import { FinancialAccountForm } from '@/components/finances/financial-account-form'
 import {
@@ -20,8 +20,8 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { createClient } from '@/lib/supabase/server'
 import { formatCurrency } from '@/lib/formatters'
+import { createClient } from '@/lib/supabase/server'
 
 export default async function FinancesPage() {
   const supabase = await createClient()
@@ -62,15 +62,15 @@ export default async function FinancesPage() {
     <div className='space-y-6'>
       <section className='flex flex-col justify-between gap-4 lg:flex-row lg:items-end'>
         <div className='space-y-2'>
-          <Badge className='rounded-full bg-emerald-100 px-3 py-1 text-emerald-700 hover:bg-emerald-100'>
+          <Badge className='rounded-full border ws-border ws-primary-soft px-3 py-1 hover:bg-[var(--ws-primary-soft)]'>
             Finanças
           </Badge>
 
           <div>
-            <h1 className='text-3xl font-black tracking-tight text-slate-950 sm:text-4xl'>
+            <h1 className='text-3xl font-black tracking-tight ws-heading sm:text-4xl'>
               Máquina de capital
             </h1>
-            <p className='mt-2 max-w-2xl text-sm leading-6 text-slate-500'>
+            <p className='mt-2 max-w-2xl text-sm leading-6 ws-muted'>
               Cadastre seu patrimônio atual para o WstSide começar a mapear sua
               base financeira.
             </p>
@@ -79,12 +79,12 @@ export default async function FinancesPage() {
       </section>
 
       {error ? (
-        <Card className='rounded-[2rem] border-red-100 bg-red-50 shadow-xl shadow-red-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface-muted shadow-xl'>
           <CardHeader>
-            <CardTitle className='text-red-700'>
+            <CardTitle className='text-[var(--ws-danger)]'>
               Não foi possível carregar seus dados
             </CardTitle>
-            <CardDescription className='text-red-600'>
+            <CardDescription className='text-[var(--ws-danger)] opacity-80'>
               Tente atualizar a página ou entrar novamente.
             </CardDescription>
           </CardHeader>
@@ -92,93 +92,107 @@ export default async function FinancesPage() {
       ) : null}
 
       <section className='grid gap-4 md:grid-cols-2 xl:grid-cols-4'>
-        <Card className='rounded-[2rem] border-emerald-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-emerald-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-primary-text)]'>
                 Patrimônio total
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {formatCurrency(totalPatrimony)}
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600'>
+            <div className='flex size-11 items-center justify-center rounded-2xl ws-primary-soft'>
               <WalletCards className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Soma de todos os ativos cadastrados.
             </p>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-blue-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-blue-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-info)]'>
                 Itens cadastrados
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {accountCount}
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-blue-50 text-blue-600'>
+            <div
+              className='flex size-11 items-center justify-center rounded-2xl'
+              style={{
+                background:
+                  'color-mix(in srgb, var(--ws-info) 14%, transparent)',
+                color: 'var(--ws-info)',
+              }}
+            >
               <Landmark className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Contas, reservas e investimentos.
             </p>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-orange-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-orange-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-warning)]'>
                 Reserva
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {formatCurrency(reserveTotal)}
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-orange-50 text-orange-600'>
+            <div
+              className='flex size-11 items-center justify-center rounded-2xl'
+              style={{
+                background:
+                  'color-mix(in srgb, var(--ws-warning) 14%, transparent)',
+                color: 'var(--ws-warning)',
+              }}
+            >
               <PiggyBank className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Total marcado como reserva.
             </p>
           </CardContent>
         </Card>
 
-        <Card className='rounded-[2rem] border-violet-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
-              <CardDescription className='font-bold uppercase tracking-wide text-violet-700'>
+              <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-primary-text)]'>
                 Investimentos
               </CardDescription>
-              <CardTitle className='mt-2 text-3xl font-black text-slate-950'>
+              <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {formatCurrency(investmentTotal)}
               </CardTitle>
             </div>
 
-            <div className='flex size-11 items-center justify-center rounded-2xl bg-violet-50 text-violet-600'>
+            <div className='flex size-11 items-center justify-center rounded-2xl ws-primary-soft'>
               <BadgeDollarSign className='size-5' />
             </div>
           </CardHeader>
 
           <CardContent>
-            <p className='text-sm leading-6 text-slate-500'>
+            <p className='text-sm leading-6 ws-muted'>
               Total marcado como investimento.
             </p>
           </CardContent>
@@ -188,19 +202,19 @@ export default async function FinancesPage() {
       <section className='grid gap-4 xl:grid-cols-[0.9fr_1.1fr]'>
         <FinancialAccountForm />
 
-        <Card className='rounded-[2rem] border-slate-100 bg-white/85 shadow-xl shadow-emerald-950/5'>
+        <Card className='rounded-[2rem] border ws-border ws-surface shadow-xl'>
           <CardHeader>
             <div className='flex items-center justify-between gap-3'>
               <div>
-                <CardTitle className='text-2xl font-black text-slate-950'>
+                <CardTitle className='text-2xl font-black ws-heading'>
                   Patrimônio cadastrado
                 </CardTitle>
-                <CardDescription>
+                <CardDescription className='ws-muted'>
                   Lista dos ativos que compõem seu patrimônio atual.
                 </CardDescription>
               </div>
 
-              <div className='hidden size-11 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-600 sm:flex'>
+              <div className='hidden size-11 items-center justify-center rounded-2xl ws-primary-soft sm:flex'>
                 <ArrowUpRight className='size-5' />
               </div>
             </div>
