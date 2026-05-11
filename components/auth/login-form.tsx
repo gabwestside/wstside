@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
 
-import { loginAction, LoginState } from '@/app/auth/login/actions'
+import { loginAction, type LoginState } from '@/app/auth/login/actions'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import {
@@ -30,7 +30,7 @@ function SubmitButton() {
     <Button
       type='submit'
       disabled={pending}
-      className='h-12 w-full rounded-2xl bg-emerald-600 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700'
+      className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
     >
       {pending ? 'Entrando...' : 'Entrar no WstSide'}
       {!pending && <ArrowRight className='ml-2 size-4' />}
@@ -48,24 +48,24 @@ export function LoginForm() {
       transition={{ duration: 0.45, ease: 'easeOut' }}
       className='w-full'
     >
-      <Card className='overflow-hidden rounded-[2rem] border-emerald-100/70 bg-white/85 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl'>
+      <Card className='overflow-hidden rounded-[2rem] border ws-border ws-surface shadow-2xl backdrop-blur-xl'>
         <CardHeader className='space-y-4 pb-6'>
           <div className='flex items-center justify-between'>
-            <div className='flex size-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'>
+            <div className='flex size-12 items-center justify-center rounded-2xl ws-primary shadow-lg'>
               <Sparkles className='size-6' />
             </div>
 
-            <div className='rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-700'>
+            <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
               V1
             </div>
           </div>
 
           <div className='space-y-2'>
-            <CardTitle className='text-3xl font-black tracking-tight text-slate-950'>
+            <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
               Bem-vindo de volta
             </CardTitle>
 
-            <CardDescription className='text-base leading-relaxed text-slate-500'>
+            <CardDescription className='text-base leading-relaxed ws-muted'>
               Entre para acessar seu painel pessoal de rotina, finanças, metas e
               evolução.
             </CardDescription>
@@ -75,7 +75,15 @@ export function LoginForm() {
         <CardContent>
           <form action={formAction} className='space-y-5'>
             {state.error ? (
-              <Alert className='rounded-2xl border-red-200 bg-red-50 text-red-700'>
+              <Alert
+                className='rounded-2xl border text-[var(--ws-danger)]'
+                style={{
+                  background:
+                    'color-mix(in srgb, var(--ws-danger) 10%, transparent)',
+                  borderColor:
+                    'color-mix(in srgb, var(--ws-danger) 24%, transparent)',
+                }}
+              >
                 <AlertDescription>{state.error}</AlertDescription>
               </Alert>
             ) : null}
@@ -83,13 +91,13 @@ export function LoginForm() {
             <div className='space-y-2'>
               <Label
                 htmlFor='email'
-                className='text-sm font-semibold text-slate-700'
+                className='text-sm font-semibold ws-heading'
               >
                 E-mail
               </Label>
 
               <div className='relative'>
-                <Mail className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <Mail className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='email'
                   name='email'
@@ -97,7 +105,7 @@ export function LoginForm() {
                   placeholder='seu@email.com'
                   required
                   autoComplete='email'
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
               </div>
             </div>
@@ -106,21 +114,21 @@ export function LoginForm() {
               <div className='flex items-center justify-between gap-3'>
                 <Label
                   htmlFor='password'
-                  className='text-sm font-semibold text-slate-700'
+                  className='text-sm font-semibold ws-heading'
                 >
                   Senha
                 </Label>
 
                 <Link
                   href='/auth/forgot-password'
-                  className='text-sm font-medium text-emerald-700 underline-offset-4 hover:underline'
+                  className='text-sm font-medium text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
                 >
                   Esqueci minha senha
                 </Link>
               </div>
 
               <div className='relative'>
-                <LockKeyhole className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <LockKeyhole className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='password'
                   name='password'
@@ -128,19 +136,19 @@ export function LoginForm() {
                   placeholder='Digite sua senha'
                   required
                   autoComplete='current-password'
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 pr-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 pr-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
-                <Eye className='pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-slate-300' />
+                <Eye className='pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 ws-muted opacity-60' />
               </div>
             </div>
 
             <SubmitButton />
 
-            <div className='pt-2 text-center text-sm text-slate-500'>
+            <div className='pt-2 text-center text-sm ws-muted'>
               Ainda não tem conta?{' '}
               <Link
                 href='/auth/sign-up'
-                className='font-semibold text-emerald-700 underline-offset-4 hover:underline'
+                className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
                 Criar conta
               </Link>

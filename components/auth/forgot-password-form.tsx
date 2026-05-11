@@ -92,41 +92,41 @@ export function ForgotPasswordForm({
         className={cn('w-full', className)}
         {...props}
       >
-        <Card className='w-full overflow-hidden rounded-[2rem] border-emerald-100/70 bg-white/85 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl'>
+        <Card className='w-full overflow-hidden rounded-[2rem] border ws-border ws-surface shadow-2xl backdrop-blur-xl'>
           <CardHeader className='space-y-4 pb-6'>
             <div className='flex items-center justify-between'>
-              <div className='flex size-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'>
+              <div className='flex size-12 items-center justify-center rounded-2xl ws-primary shadow-lg'>
                 <MailCheck className='size-6' />
               </div>
 
-              <div className='rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-700'>
+              <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
                 Enviado
               </div>
             </div>
 
             <div className='space-y-2'>
-              <CardTitle className='text-3xl font-black tracking-tight text-slate-950'>
+              <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
                 Verifique seu e-mail
               </CardTitle>
 
-              <CardDescription className='text-base leading-relaxed text-slate-500'>
+              <CardDescription className='text-base leading-relaxed ws-muted'>
                 Enviamos as instruções para redefinir sua senha.
               </CardDescription>
             </div>
           </CardHeader>
 
           <CardContent className='space-y-6'>
-            <div className='rounded-[1.5rem] border border-emerald-100 bg-emerald-50/70 p-5'>
+            <div className='rounded-[1.5rem] border ws-border ws-primary-soft p-5'>
               <div className='flex gap-4'>
-                <div className='flex size-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-white'>
+                <div className='flex size-10 shrink-0 items-center justify-center rounded-2xl ws-primary'>
                   <CheckCircle2 className='size-5' />
                 </div>
 
                 <div className='space-y-1'>
-                  <p className='font-bold text-slate-950'>
+                  <p className='font-bold ws-heading'>
                     Link de recuperação solicitado
                   </p>
-                  <p className='text-sm leading-6 text-slate-600'>
+                  <p className='text-sm leading-6 ws-muted'>
                     Se o e-mail informado estiver cadastrado, você receberá um
                     link para criar uma nova senha.
                   </p>
@@ -134,10 +134,10 @@ export function ForgotPasswordForm({
               </div>
             </div>
 
-            <div className='space-y-3 rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5'>
-              <p className='text-sm font-bold text-slate-950'>Não encontrou?</p>
+            <div className='space-y-3 rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
+              <p className='text-sm font-bold ws-heading'>Não encontrou?</p>
 
-              <p className='text-sm leading-6 text-slate-500'>
+              <p className='text-sm leading-6 ws-muted'>
                 Confira sua caixa de entrada, promoções, spam ou lixo
                 eletrônico. O e-mail pode levar alguns minutos para chegar.
               </p>
@@ -145,7 +145,7 @@ export function ForgotPasswordForm({
 
             <Button
               asChild
-              className='h-12 w-full rounded-2xl bg-emerald-600 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700'
+              className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition'
             >
               <Link href='/auth/login'>
                 Voltar para login
@@ -156,7 +156,7 @@ export function ForgotPasswordForm({
             <button
               type='button'
               onClick={() => setSuccess(false)}
-              className='mx-auto flex items-center justify-center text-sm font-semibold text-emerald-700 underline-offset-4 hover:underline'
+              className='mx-auto flex items-center justify-center text-sm font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
             >
               <ArrowLeft className='mr-2 size-4' />
               Enviar para outro e-mail
@@ -175,24 +175,24 @@ export function ForgotPasswordForm({
       className={cn('w-full', className)}
       {...props}
     >
-      <Card className='overflow-hidden rounded-[2rem] border-emerald-100/70 bg-white/85 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl'>
+      <Card className='overflow-hidden rounded-[2rem] border ws-border ws-surface shadow-2xl backdrop-blur-xl'>
         <CardHeader className='space-y-4 pb-6'>
           <div className='flex items-center justify-between'>
-            <div className='flex size-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'>
+            <div className='flex size-12 items-center justify-center rounded-2xl ws-primary shadow-lg'>
               <ShieldCheck className='size-6' />
             </div>
 
-            <div className='rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-700'>
+            <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
               Recuperar
             </div>
           </div>
 
           <div className='space-y-2'>
-            <CardTitle className='text-3xl font-black tracking-tight text-slate-950'>
+            <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
               Redefinir senha
             </CardTitle>
 
-            <CardDescription className='text-base leading-relaxed text-slate-500'>
+            <CardDescription className='text-base leading-relaxed ws-muted'>
               Informe seu e-mail e enviaremos um link para você criar uma nova
               senha.
             </CardDescription>
@@ -202,7 +202,15 @@ export function ForgotPasswordForm({
         <CardContent>
           <form onSubmit={handleForgotPassword} className='space-y-5'>
             {error ? (
-              <Alert className='rounded-2xl border-red-200 bg-red-50 text-red-700'>
+              <Alert
+                className='rounded-2xl border text-[var(--ws-danger)]'
+                style={{
+                  background:
+                    'color-mix(in srgb, var(--ws-danger) 10%, transparent)',
+                  borderColor:
+                    'color-mix(in srgb, var(--ws-danger) 24%, transparent)',
+                }}
+              >
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             ) : null}
@@ -210,13 +218,13 @@ export function ForgotPasswordForm({
             <div className='space-y-2'>
               <Label
                 htmlFor='email'
-                className='text-sm font-semibold text-slate-700'
+                className='text-sm font-semibold ws-heading'
               >
                 E-mail
               </Label>
 
               <div className='relative'>
-                <Mail className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <Mail className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='email'
                   name='email'
@@ -226,7 +234,7 @@ export function ForgotPasswordForm({
                   autoComplete='email'
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
               </div>
             </div>
@@ -234,27 +242,27 @@ export function ForgotPasswordForm({
             <Button
               type='submit'
               disabled={isLoading}
-              className='h-12 w-full rounded-2xl bg-emerald-600 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700'
+              className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
             >
               {isLoading ? 'Enviando...' : 'Enviar link de recuperação'}
               {!isLoading && <ArrowRight className='ml-2 size-4' />}
             </Button>
 
-            <div className='pt-2 text-center text-sm text-slate-500'>
+            <div className='pt-2 text-center text-sm ws-muted'>
               Lembrou sua senha?{' '}
               <Link
                 href='/auth/login'
-                className='font-semibold text-emerald-700 underline-offset-4 hover:underline'
+                className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
                 Entrar
               </Link>
             </div>
 
-            <div className='text-center text-sm text-slate-500'>
+            <div className='text-center text-sm ws-muted'>
               Ainda não tem conta?{' '}
               <Link
                 href='/auth/sign-up'
-                className='font-semibold text-emerald-700 underline-offset-4 hover:underline'
+                className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
                 Criar conta
               </Link>
