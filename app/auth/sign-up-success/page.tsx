@@ -1,5 +1,5 @@
-import Link from 'next/link'
 import { ArrowRight, CheckCircle2, MailCheck, Sparkles } from 'lucide-react'
+import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -12,47 +12,43 @@ import {
 
 export default function SignUpSuccessPage() {
   return (
-    <main className='relative min-h-svh overflow-hidden bg-[#f4fbf7]'>
-      <div className='absolute left-[-10%] top-[-10%] size-72 rounded-full bg-emerald-300/30 blur-3xl' />
-      <div className='absolute bottom-[-12%] right-[-10%] size-80 rounded-full bg-teal-300/25 blur-3xl' />
-      <div className='absolute left-1/2 top-1/2 size-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/60 blur-3xl' />
-
+    <main className='relative min-h-svh overflow-hidden ws-app-bg'>
       <section className='relative z-10 grid min-h-svh lg:grid-cols-[1fr_0.95fr]'>
         <div className='flex min-h-svh flex-col justify-between px-6 py-8 md:px-10 lg:px-14'>
           <div className='flex items-center gap-3'>
-            <div className='flex size-10 items-center justify-center rounded-2xl bg-slate-950 text-sm font-black text-white shadow-lg shadow-slate-950/15'>
+            <div className='flex size-10 items-center justify-center rounded-2xl ws-primary text-sm font-black shadow-lg'>
               W
             </div>
 
             <div>
-              <p className='text-sm font-black uppercase tracking-[0.22em] text-slate-950'>
+              <p className='text-sm font-black uppercase tracking-[0.22em] ws-heading'>
                 WstSide
               </p>
-              <p className='text-xs font-medium text-slate-500'>
+              <p className='text-xs font-medium ws-muted'>
                 Life Operating System
               </p>
             </div>
           </div>
 
           <div className='mx-auto flex w-full max-w-md flex-1 items-center py-10'>
-            <Card className='w-full overflow-hidden rounded-[2rem] border-emerald-100/70 bg-white/85 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl'>
+            <Card className='w-full overflow-hidden rounded-[2rem] border ws-border ws-surface shadow-2xl backdrop-blur-xl'>
               <CardHeader className='space-y-4 pb-6'>
                 <div className='flex items-center justify-between'>
-                  <div className='flex size-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'>
+                  <div className='flex size-12 items-center justify-center rounded-2xl ws-primary shadow-lg'>
                     <MailCheck className='size-6' />
                   </div>
 
-                  <div className='rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-700'>
+                  <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
                     Quase lá
                   </div>
                 </div>
 
                 <div className='space-y-2'>
-                  <CardTitle className='text-3xl font-black tracking-tight text-slate-950'>
+                  <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
                     Confirme seu e-mail
                   </CardTitle>
 
-                  <CardDescription className='text-base leading-relaxed text-slate-500'>
+                  <CardDescription className='text-base leading-relaxed ws-muted'>
                     Sua conta foi criada. Agora falta confirmar seu e-mail para
                     liberar o acesso ao WstSide.
                   </CardDescription>
@@ -60,17 +56,17 @@ export default function SignUpSuccessPage() {
               </CardHeader>
 
               <CardContent className='space-y-6'>
-                <div className='rounded-[1.5rem] border border-emerald-100 bg-emerald-50/70 p-5'>
+                <div className='rounded-[1.5rem] border ws-border ws-primary-soft p-5'>
                   <div className='flex gap-4'>
-                    <div className='flex size-10 shrink-0 items-center justify-center rounded-2xl bg-emerald-600 text-white'>
+                    <div className='flex size-10 shrink-0 items-center justify-center rounded-2xl ws-primary'>
                       <CheckCircle2 className='size-5' />
                     </div>
 
                     <div className='space-y-1'>
-                      <p className='font-bold text-slate-950'>
+                      <p className='font-bold ws-heading'>
                         Verifique sua caixa de entrada
                       </p>
-                      <p className='text-sm leading-6 text-slate-600'>
+                      <p className='text-sm leading-6 ws-muted'>
                         Enviamos um link de confirmação para o e-mail
                         cadastrado. Clique no link para ativar sua conta antes
                         de fazer login.
@@ -79,12 +75,12 @@ export default function SignUpSuccessPage() {
                   </div>
                 </div>
 
-                <div className='space-y-3 rounded-[1.5rem] border border-slate-100 bg-slate-50 p-5'>
-                  <p className='text-sm font-bold text-slate-950'>
+                <div className='space-y-3 rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
+                  <p className='text-sm font-bold ws-heading'>
                     Não encontrou o e-mail?
                   </p>
 
-                  <p className='text-sm leading-6 text-slate-500'>
+                  <p className='text-sm leading-6 ws-muted'>
                     Confira a aba de promoções, spam ou lixo eletrônico. O envio
                     pode levar alguns minutos dependendo do provedor.
                   </p>
@@ -92,7 +88,7 @@ export default function SignUpSuccessPage() {
 
                 <Button
                   asChild
-                  className='h-12 w-full rounded-2xl bg-emerald-600 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700'
+                  className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition'
                 >
                   <Link href='/auth/login'>
                     Ir para login
@@ -100,11 +96,11 @@ export default function SignUpSuccessPage() {
                   </Link>
                 </Button>
 
-                <div className='text-center text-sm text-slate-500'>
+                <div className='text-center text-sm ws-muted'>
                   Usou o e-mail errado?{' '}
                   <Link
                     href='/auth/sign-up'
-                    className='font-semibold text-emerald-700 underline-offset-4 hover:underline'
+                    className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
                   >
                     Criar outra conta
                   </Link>
@@ -113,17 +109,17 @@ export default function SignUpSuccessPage() {
             </Card>
           </div>
 
-          <p className='text-center text-xs text-slate-400 md:text-left'>
+          <p className='text-center text-xs ws-muted md:text-left'>
             Depois da confirmação, você poderá acessar seu painel pessoal.
           </p>
         </div>
 
-        <aside className='relative hidden border-l border-emerald-100/70 bg-emerald-950 p-10 text-white lg:block'>
-          <div className='absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(16,185,129,0.35),transparent_32%),radial-gradient(circle_at_70%_80%,rgba(45,212,191,0.2),transparent_28%)]' />
+        <aside className='relative hidden border-l ws-border ws-primary p-10 lg:block'>
+          <div className='absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,color-mix(in_srgb,currentColor_18%,transparent),transparent_32%),radial-gradient(circle_at_70%_80%,color-mix(in_srgb,currentColor_12%,transparent),transparent_28%)]' />
 
           <div className='relative z-10 flex h-full flex-col justify-between'>
             <div className='space-y-4'>
-              <div className='inline-flex rounded-full border border-white/10 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] text-emerald-100 backdrop-blur'>
+              <div className='inline-flex rounded-full border border-current/10 bg-current/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur'>
                 Conta criada
               </div>
 
@@ -131,50 +127,50 @@ export default function SignUpSuccessPage() {
                 O primeiro passo do seu sistema pessoal foi dado.
               </h1>
 
-              <p className='max-w-md text-base leading-7 text-emerald-50/75'>
+              <p className='max-w-md text-base leading-7 opacity-75'>
                 Confirme seu e-mail e comece a construir sua central de
                 finanças, rotina, metas e evolução.
               </p>
             </div>
 
             <div className='grid gap-4'>
-              <div className='rounded-[2rem] border border-white/10 bg-white/10 p-5 shadow-2xl shadow-black/10 backdrop-blur'>
+              <div className='rounded-[2rem] border border-current/10 bg-current/10 p-5 shadow-2xl backdrop-blur'>
                 <div className='flex items-center gap-3'>
-                  <div className='flex size-11 items-center justify-center rounded-2xl bg-white/10'>
-                    <Sparkles className='size-5 text-emerald-200' />
+                  <div className='flex size-11 items-center justify-center rounded-2xl bg-current/10'>
+                    <Sparkles className='size-5 opacity-75' />
                   </div>
 
                   <div>
-                    <p className='text-xs font-bold uppercase tracking-[0.18em] text-emerald-200'>
+                    <p className='text-xs font-bold uppercase tracking-[0.18em] opacity-75'>
                       Próxima etapa
                     </p>
                     <p className='mt-1 text-xl font-black'>Ativar sua conta</p>
                   </div>
                 </div>
 
-                <p className='mt-4 text-sm leading-6 text-emerald-50/70'>
+                <p className='mt-4 text-sm leading-6 opacity-75'>
                   Após confirmar o e-mail, você será liberado para entrar no
                   ambiente privado do WstSide.
                 </p>
               </div>
 
               <div className='grid grid-cols-3 gap-4'>
-                <div className='rounded-[1.5rem] border border-white/10 bg-white/10 p-5 backdrop-blur'>
-                  <p className='text-xs font-bold uppercase tracking-wide text-emerald-200'>
+                <div className='rounded-[1.5rem] border border-current/10 bg-current/10 p-5 backdrop-blur'>
+                  <p className='text-xs font-bold uppercase tracking-wide opacity-75'>
                     Conta
                   </p>
                   <p className='mt-2 text-3xl font-black'>OK</p>
                 </div>
 
-                <div className='rounded-[1.5rem] border border-white/10 bg-white/10 p-5 backdrop-blur'>
-                  <p className='text-xs font-bold uppercase tracking-wide text-emerald-200'>
+                <div className='rounded-[1.5rem] border border-current/10 bg-current/10 p-5 backdrop-blur'>
+                  <p className='text-xs font-bold uppercase tracking-wide opacity-75'>
                     E-mail
                   </p>
                   <p className='mt-2 text-3xl font-black'>→</p>
                 </div>
 
-                <div className='rounded-[1.5rem] border border-white/10 bg-white/10 p-5 backdrop-blur'>
-                  <p className='text-xs font-bold uppercase tracking-wide text-emerald-200'>
+                <div className='rounded-[1.5rem] border border-current/10 bg-current/10 p-5 backdrop-blur'>
+                  <p className='text-xs font-bold uppercase tracking-wide opacity-75'>
                     Acesso
                   </p>
                   <p className='mt-2 text-3xl font-black'>ON</p>

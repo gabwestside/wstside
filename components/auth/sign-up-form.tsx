@@ -1,9 +1,5 @@
 'use client'
 
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
-import { useState } from 'react'
-import { motion } from 'motion/react'
 import {
   ArrowRight,
   Eye,
@@ -12,9 +8,11 @@ import {
   Sparkles,
   User,
 } from 'lucide-react'
+import { motion } from 'motion/react'
+import Link from 'next/link'
+import { useRouter } from 'next/navigation'
+import { useState } from 'react'
 
-import { createClient } from '@/lib/supabase/client'
-import { cn } from '@/lib/utils'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import {
@@ -26,6 +24,8 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { createClient } from '@/lib/supabase/client'
+import { cn } from '@/lib/utils'
 
 export function SignUpForm({
   className,
@@ -109,24 +109,24 @@ export function SignUpForm({
       className={cn('w-full', className)}
       {...props}
     >
-      <Card className='overflow-hidden rounded-[2rem] border-emerald-100/70 bg-white/85 shadow-2xl shadow-emerald-950/10 backdrop-blur-xl'>
+      <Card className='overflow-hidden rounded-[2rem] border ws-border ws-surface shadow-2xl backdrop-blur-xl'>
         <CardHeader className='space-y-4 pb-6'>
           <div className='flex items-center justify-between'>
-            <div className='flex size-12 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/25'>
+            <div className='flex size-12 items-center justify-center rounded-2xl ws-primary shadow-lg'>
               <Sparkles className='size-6' />
             </div>
 
-            <div className='rounded-full border border-emerald-100 bg-emerald-50 px-3 py-1 text-xs font-bold uppercase tracking-wide text-emerald-700'>
+            <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
               Cadastro
             </div>
           </div>
 
           <div className='space-y-2'>
-            <CardTitle className='text-3xl font-black tracking-tight text-slate-950'>
+            <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
               Crie sua conta
             </CardTitle>
 
-            <CardDescription className='text-base leading-relaxed text-slate-500'>
+            <CardDescription className='text-base leading-relaxed ws-muted'>
               Comece a montar seu painel pessoal de finanças, rotina, metas e
               evolução.
             </CardDescription>
@@ -136,7 +136,15 @@ export function SignUpForm({
         <CardContent>
           <form onSubmit={handleSignUp} className='space-y-5'>
             {error ? (
-              <Alert className='rounded-2xl border-red-200 bg-red-50 text-red-700'>
+              <Alert
+                className='rounded-2xl border text-[var(--ws-danger)]'
+                style={{
+                  background:
+                    'color-mix(in srgb, var(--ws-danger) 10%, transparent)',
+                  borderColor:
+                    'color-mix(in srgb, var(--ws-danger) 24%, transparent)',
+                }}
+              >
                 <AlertDescription>{error}</AlertDescription>
               </Alert>
             ) : null}
@@ -144,13 +152,13 @@ export function SignUpForm({
             <div className='space-y-2'>
               <Label
                 htmlFor='name'
-                className='text-sm font-semibold text-slate-700'
+                className='text-sm font-semibold ws-heading'
               >
                 Nome
               </Label>
 
               <div className='relative'>
-                <User className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <User className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='name'
                   name='name'
@@ -160,7 +168,7 @@ export function SignUpForm({
                   autoComplete='name'
                   value={name}
                   onChange={(event) => setName(event.target.value)}
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
               </div>
             </div>
@@ -168,13 +176,13 @@ export function SignUpForm({
             <div className='space-y-2'>
               <Label
                 htmlFor='email'
-                className='text-sm font-semibold text-slate-700'
+                className='text-sm font-semibold ws-heading'
               >
                 E-mail
               </Label>
 
               <div className='relative'>
-                <Mail className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <Mail className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='email'
                   name='email'
@@ -184,7 +192,7 @@ export function SignUpForm({
                   autoComplete='email'
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
               </div>
             </div>
@@ -192,13 +200,13 @@ export function SignUpForm({
             <div className='space-y-2'>
               <Label
                 htmlFor='password'
-                className='text-sm font-semibold text-slate-700'
+                className='text-sm font-semibold ws-heading'
               >
                 Senha
               </Label>
 
               <div className='relative'>
-                <LockKeyhole className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <LockKeyhole className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='password'
                   name='password'
@@ -208,22 +216,22 @@ export function SignUpForm({
                   autoComplete='new-password'
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 pr-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 pr-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
-                <Eye className='pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-slate-300' />
+                <Eye className='pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 ws-muted opacity-60' />
               </div>
             </div>
 
             <div className='space-y-2'>
               <Label
                 htmlFor='repeat-password'
-                className='text-sm font-semibold text-slate-700'
+                className='text-sm font-semibold ws-heading'
               >
                 Confirmar senha
               </Label>
 
               <div className='relative'>
-                <LockKeyhole className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 text-slate-400' />
+                <LockKeyhole className='pointer-events-none absolute left-4 top-1/2 size-4 -translate-y-1/2 ws-muted' />
                 <Input
                   id='repeat-password'
                   name='repeat-password'
@@ -233,26 +241,26 @@ export function SignUpForm({
                   autoComplete='new-password'
                   value={repeatPassword}
                   onChange={(event) => setRepeatPassword(event.target.value)}
-                  className='h-12 rounded-2xl border-slate-200 bg-slate-50 pl-11 pr-11 text-base shadow-none focus-visible:ring-emerald-500'
+                  className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 pr-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
                 />
-                <Eye className='pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 text-slate-300' />
+                <Eye className='pointer-events-none absolute right-4 top-1/2 size-4 -translate-y-1/2 ws-muted opacity-60' />
               </div>
             </div>
 
             <Button
               type='submit'
               disabled={isLoading}
-              className='h-12 w-full rounded-2xl bg-emerald-600 text-base font-semibold text-white shadow-lg shadow-emerald-600/20 transition hover:bg-emerald-700'
+              className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
             >
               {isLoading ? 'Criando conta...' : 'Criar conta'}
               {!isLoading && <ArrowRight className='ml-2 size-4' />}
             </Button>
 
-            <div className='pt-2 text-center text-sm text-slate-500'>
+            <div className='pt-2 text-center text-sm ws-muted'>
               Já tem uma conta?{' '}
               <Link
                 href='/auth/login'
-                className='font-semibold text-emerald-700 underline-offset-4 hover:underline'
+                className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
                 Entrar
               </Link>
