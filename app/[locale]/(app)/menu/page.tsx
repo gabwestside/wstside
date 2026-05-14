@@ -9,8 +9,11 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
+import { LanguageSelector } from '@/components/settings/language-selector'
+import { useTranslations } from 'next-intl'
 
 export default function MenuPage() {
+  const t = useTranslations('Settings');
   return (
     <div className='space-y-6'>
       <section className='flex flex-col justify-between gap-4 lg:flex-row lg:items-end'>
@@ -81,6 +84,21 @@ export default function MenuPage() {
 
           <CardContent>
             <ThemeSelector />
+          </CardContent>
+        </Card>
+
+        <Card className='rounded-[2rem] border ws-surface'>
+          <CardHeader>
+            <CardTitle className='text-2xl font-black ws-heading'>
+              {t('language')}
+            </CardTitle>
+            <CardDescription className='ws-muted'>
+              {t('languageDescription')}
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            <LanguageSelector />
           </CardContent>
         </Card>
       </section>

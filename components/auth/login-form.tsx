@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
 
-import { loginAction, type LoginState } from '@/app/auth/login/actions'
+import { loginAction, type LoginState } from '@/app/[locale]/auth/login/actions'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import {

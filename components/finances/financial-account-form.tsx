@@ -7,7 +7,7 @@ import { useFormStatus } from 'react-dom'
 import {
   createFinancialAccountAction,
   type FinancialAccountState,
-} from '@/app/(app)/finances/actions'
+} from '@/app/[locale]/(app)/finances/actions'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Button } from '@/components/ui/button'
 import {

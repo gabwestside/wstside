@@ -1,6 +1,6 @@
 import { Trash2, WalletCards } from 'lucide-react'
 
-import { deleteFinancialAccountAction } from '@/app/(app)/finances/actions'
+import { deleteFinancialAccountAction } from '@/app/[locale]/(app)/finances/actions'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { formatCurrency } from '@/lib/formatters'
