@@ -516,3 +516,12 @@ Finalizar tela de login
 
 Depois de criar esses arquivos, seguimos com a tela de login já usando esse roadmap como referência fixa.
 ```
+
+## 24. INTL i18n
+
+Não escrever texto de interface direto no JSX.
+Todo texto visível vai para messages/{locale}.json.
+Componentes Client usam useTranslations().
+Server Actions e Server Components async usam getTranslations().
+Links e redirects usam '@/i18n/navigation'.
+Datas e moedas devem usar next-intl ou Intl com locale atual.

@@ -1,0 +1,113 @@
+{
+  "Navigation": {
+    "dashboard": "仪表盘",
+    "finances": "财务",
+    "routine": "日程",
+    "goals": "目标",
+    "menu": "菜单",
+    "home": "首页",
+    "logout": "退出"
+  },
+  "Common": {
+    "wstside": "WstSide",
+    "tagline": "生活操作系统",
+    "loadingPanel": "正在加载你的面板...",
+    "backToDashboard": "返回仪表盘",
+    "settings": "设置"
+  },
+  "Sidebar": {
+    "v1Title": "V1 开发中",
+    "v1Description": "登录、仪表盘、财务和日程。"
+  },
+  "Auth": {
+    "login": {
+      "badge": "V1",
+      "title": "欢迎回来",
+      "description": "登录后即可访问你的个人面板，管理日程、财务、目标和成长。",
+      "email": "邮箱",
+      "emailPlaceholder": "you@email.com",
+      "password": "密码",
+      "passwordPlaceholder": "请输入密码",
+      "forgotPassword": "忘记密码",
+      "submit": "进入 WstSide",
+      "submitting": "正在登录...",
+      "noAccount": "还没有账户？",
+      "createAccount": "创建账户",
+      "invalidCredentials": "邮箱或密码无效。请检查信息后重试。",
+      "requiredFields": "请填写邮箱和密码以继续。",
+      "heroBadge": "个人仪表盘",
+      "heroTitle": "把你的生活整理到一个中心面板中。",
+      "heroDescription": "财务、日程、目标、习惯和个人成长都集中在一个简洁、直观、响应式的体验中。",
+      "footer": "整理生活，跟踪成长，做出更好的决定。"
+    },
+    "signup": {
+      "badge": "注册",
+      "title": "创建你的账户",
+      "description": "开始搭建你的个人面板，用于管理财务、日程、目标和成长。",
+      "name": "姓名",
+      "namePlaceholder": "你的姓名",
+      "email": "邮箱",
+      "emailPlaceholder": "you@email.com",
+      "password": "密码",
+      "passwordPlaceholder": "创建一个密码",
+      "confirmPassword": "确认密码",
+      "confirmPasswordPlaceholder": "再次输入密码",
+      "submit": "创建账户",
+      "submitting": "正在创建账户...",
+      "alreadyHaveAccount": "已经有账户？",
+      "login": "登录",
+      "nameRequired": "请输入你的姓名以继续。",
+      "emailRequired": "请输入你的邮箱以继续。",
+      "passwordMin": "密码至少需要 6 个字符。",
+      "passwordMismatch": "两次输入的密码不一致。请检查后重试。",
+      "genericError": "目前无法创建你的账户。请检查信息后重试。",
+      "heroBadge": "开始你的成长",
+      "heroTitle": "把你的日程变成一个系统。",
+      "heroDescription": "WstSide 会把你的财务、习惯、目标和个人成长集中在一个地方。",
+      "footer": "创建你的个人基础，用来管理财务、日程和目标。"
+    },
+    "forgotPassword": {
+      "badge": "恢复",
+      "title": "重置密码",
+      "description": "输入你的邮箱，我们会发送一个链接，让你创建新密码。",
+      "email": "邮箱",
+      "emailPlaceholder": "you@email.com",
+      "submit": "发送恢复链接",
+      "submitting": "正在发送...",
+      "remembered": "想起密码了？",
+      "login": "登录",
+      "noAccount": "还没有账户？",
+      "createAccount": "创建账户",
+      "emailRequired": "请输入你的邮箱以继续。",
+      "genericError": "目前无法发送恢复邮件。请检查邮箱后重试。",
+      "successBadge": "已发送",
+      "successTitle": "请检查你的邮箱",
+      "successDescription": "我们已发送密码重置说明。",
+      "successCardTitle": "恢复链接已请求",
+      "successCardDescription": "如果该邮箱已注册，你将收到一个用于创建新密码的链接。",
+      "notFoundTitle": "没有找到邮件？",
+      "notFoundDescription": "请检查收件箱、促销、垃圾邮件或回收站。邮件可能需要几分钟才能到达。",
+      "backToLogin": "返回登录",
+      "sendToAnotherEmail": "发送到其他邮箱"
+    }
+  },
+  "Settings": {
+    "title": "WstSide 中心",
+    "description": "管理视觉偏好、主题、语言和整体体验设置。",
+    "appearance": "外观",
+    "appearanceDescription": "选择一个主题来改变 WstSide 的视觉风格。",
+    "language": "语言",
+    "languageDescription": "选择界面语言。",
+    "savedAutomatically": "主题会自动保存",
+    "savedAutomaticallyDescription": "你的选择会保存在浏览器中，并在下次访问时自动应用。",
+    "availableThemes": "可用主题",
+    "availableThemesDescription": "为应用选择一个视觉风格。",
+    "availableLanguages": "可用语言"
+  },
+  "Languages": {
+    "pt-BR": "葡萄牙语",
+    "en": "英语",
+    "es": "西班牙语",
+    "zh-CN": "简体中文"
+  }
+}

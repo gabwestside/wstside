@@ -9,40 +9,40 @@ import {
   Sparkles,
   WalletCards,
 } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
 import { signOutAction } from '@/app/actions/auth'
 import type { AppUser } from '@/components/layout/app-shell'
+import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
 const navigationItems = [
   {
-    label: 'Dashboard',
+    labelKey: 'dashboard',
     href: '/dashboard',
     icon: LayoutDashboard,
   },
   {
-    label: 'Finanças',
+    labelKey: 'finances',
     href: '/finances',
     icon: WalletCards,
   },
   {
-    label: 'Rotina',
+    labelKey: 'routine',
     href: '/routine',
     icon: CalendarCheck2,
   },
   {
-    label: 'Metas',
+    labelKey: 'goals',
     href: '/goals',
     icon: Goal,
   },
   {
-    label: 'Menu',
+    labelKey: 'menu',
     href: '/menu',
     icon: Menu,
   },
-]
+] as const
 
 type AppSidebarProps = {
   user: AppUser
@@ -50,6 +50,9 @@ type AppSidebarProps = {
 
 export function AppSidebar({ user }: AppSidebarProps) {
   const pathname = usePathname()
+  const tNavigation = useTranslations('Navigation')
+  const tCommon = useTranslations('Common')
+  const tSidebar = useTranslations('Sidebar')
 
   return (
     <aside className='fixed inset-y-0 left-0 z-40 hidden w-72 border-r ws-sidebar ws-border px-5 py-6 shadow-2xl backdrop-blur-xl lg:flex lg:flex-col'>
@@ -60,9 +63,9 @@ export function AppSidebar({ user }: AppSidebarProps) {
 
         <div>
           <p className='text-sm font-black uppercase tracking-[0.22em] ws-heading'>
-            WstSide
+            {tCommon('wstside')}
           </p>
-          <p className='text-xs font-medium ws-muted'>Life Operating System</p>
+          <p className='text-xs font-medium ws-muted'>{tCommon('tagline')}</p>
         </div>
       </div>
 
@@ -104,7 +107,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
                     : 'text-[var(--ws-muted)] group-hover:text-[var(--ws-primary-text)]',
                 )}
               />
-              {item.label}
+              {tNavigation(item.labelKey)}
             </Link>
           )
         })}
@@ -118,10 +121,10 @@ export function AppSidebar({ user }: AppSidebarProps) {
             </div>
 
             <div>
-              <p className='text-sm font-bold ws-heading'>V1 em progresso</p>
-              <p className='text-xs ws-muted'>
-                Login, dashboard, finanças e rotina.
+              <p className='text-sm font-bold ws-heading'>
+                {tSidebar('v1Title')}
               </p>
+              <p className='text-xs ws-muted'>{tSidebar('v1Description')}</p>
             </div>
           </div>
         </div>
@@ -132,7 +135,7 @@ export function AppSidebar({ user }: AppSidebarProps) {
             className='flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-sm font-semibold ws-muted transition hover:bg-[color-mix(in_srgb,var(--ws-danger)_12%,transparent)] hover:text-[var(--ws-danger)]'
           >
             <LogOut className='size-5' />
-            Sair
+            {tNavigation('logout')}
           </button>
         </form>
       </div>

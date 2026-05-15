@@ -1,4 +1,8 @@
 {
+  "Sidebar": {
+    "v1Title": "V1 in progress",
+    "v1Description": "Login, dashboard, finances and routine."
+  },
   "Navigation": {
     "dashboard": "Dashboard",
     "finances": "Finances",
@@ -103,6 +107,7 @@
   "Languages": {
     "pt-BR": "Portuguese",
     "en": "English",
-    "es": "Spanish"
+    "es": "Spanish",
+    "zh-CN": "Simplified Chinese"
   }
 }
