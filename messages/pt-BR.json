@@ -92,6 +92,7 @@
     }
   },
   "Settings": {
+    "settings": "Configurações",
     "title": "Central do WstSide",
     "description": "Gerencie preferências visuais, temas, idioma e ajustes gerais da sua experiência.",
     "appearance": "Aparência",

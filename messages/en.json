@@ -92,6 +92,7 @@
     }
   },
   "Settings": {
+    "settings": "Settings",
     "title": "WstSide Center",
     "description": "Manage visual preferences, themes, language and general experience settings.",
     "appearance": "Appearance",

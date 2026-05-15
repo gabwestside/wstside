@@ -7,41 +7,42 @@ import {
   Menu,
   WalletCards,
 } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { useTranslations } from 'next-intl'
 
+import { Link, usePathname } from '@/i18n/navigation'
 import { cn } from '@/lib/utils'
 
 const navigationItems = [
   {
-    label: 'Início',
+    labelKey: 'home',
     href: '/dashboard',
     icon: LayoutDashboard,
   },
   {
-    label: 'Finanças',
+    labelKey: 'finances',
     href: '/finances',
     icon: WalletCards,
   },
   {
-    label: 'Rotina',
+    labelKey: 'routine',
     href: '/routine',
     icon: CalendarCheck2,
   },
   {
-    label: 'Metas',
+    labelKey: 'goals',
     href: '/goals',
     icon: Goal,
   },
   {
-    label: 'Menu',
+    labelKey: 'menu',
     href: '/menu',
     icon: Menu,
   },
-]
+] as const
 
 export function BottomNav() {
   const pathname = usePathname()
+  const tNavigation = useTranslations('Navigation')
 
   return (
     <nav className='fixed inset-x-3 bottom-3 z-50 rounded-[2rem] border ws-sidebar ws-border p-2 shadow-2xl backdrop-blur-xl lg:hidden'>
@@ -70,7 +71,7 @@ export function BottomNav() {
                     : 'text-[var(--ws-muted)] group-hover:text-[var(--ws-primary-text)]',
                 )}
               />
-              <span>{item.label}</span>
+              <span>{tNavigation(item.labelKey)}</span>
             </Link>
           )
         })}

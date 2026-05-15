@@ -3,6 +3,29 @@
     "v1Title": "V1 en progreso",
     "v1Description": "Login, dashboard, finanzas y rutina."
   },
+  "Settings": {
+    "settings": "Configuración",
+    "title": "Centro de WstSide",
+    "description": "Administra preferencias visuales, temas, idioma y ajustes generales de tu experiencia.",
+    "appearance": "Apariencia",
+    "appearanceDescription": "Elige un tema para cambiar la identidad visual de WstSide.",
+    "language": "Idioma",
+    "languageDescription": "Elige el idioma de la interfaz.",
+    "savedAutomatically": "Tema guardado automáticamente",
+    "savedAutomaticallyDescription": "Tu elección se guarda en el navegador y se aplicará en futuras visitas.",
+    "availableThemes": "Temas disponibles",
+    "availableThemesDescription": "Selecciona una identidad visual para la aplicación.",
+    "availableLanguages": "Idiomas disponibles"
+  },
+  "Navigation": {
+    "dashboard": "Panel",
+    "finances": "Finanzas",
+    "routine": "Rutina",
+    "goals": "Metas",
+    "menu": "Menú",
+    "home": "Inicio",
+    "logout": "Salir"
+  },
   "Languages": {
     "pt-BR": "Portugués",
     "en": "Inglés",

@@ -6,7 +6,7 @@
     "goals": "目标",
     "menu": "菜单",
     "home": "首页",
-    "logout": "退出"
+    "logout": "退出登录"
   },
   "Common": {
     "wstside": "WstSide",
@@ -92,6 +92,7 @@
     }
   },
   "Settings": {
+    "settings": "设置",
     "title": "WstSide 中心",
     "description": "管理视觉偏好、主题、语言和整体体验设置。",
     "appearance": "外观",
