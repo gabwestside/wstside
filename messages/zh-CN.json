@@ -18,7 +18,12 @@
       "heroBadge": "个人仪表盘",
       "heroTitle": "把你的生活整理到一个中心面板中。",
       "heroDescription": "财务、日程、目标、习惯和个人成长都集中在一个简洁、直观、响应式的体验中。",
-      "footer": "整理生活，跟踪成长，做出更好的决定。"
+      "footer": "整理生活，跟踪成长，做出更好的决定。",
+      "capitalMachine": "资本机器",
+      "capitalValue": "¥0.00",
+      "capitalStart": "从登记你当前的资产开始。",
+      "routine": "日程",
+      "goals": "目标"
     },
     "signup": {
       "badge": "注册",

@@ -1,6 +1,11 @@
+import { getTranslations } from 'next-intl/server'
+
 import { LoginForm } from '@/components/auth/login-form'
 
-export default function LoginPage() {
+export default async function LoginPage() {
+  const t = await getTranslations('Auth.login')
+  const tCommon = await getTranslations('Common')
+
   return (
     <main className='relative min-h-svh overflow-hidden ws-app-bg'>
       <section className='relative z-10 grid min-h-svh lg:grid-cols-[1fr_0.95fr]'>
@@ -12,10 +17,10 @@ export default function LoginPage() {
 
             <div>
               <p className='text-sm font-black uppercase tracking-[0.22em] ws-heading'>
-                WstSide
+                {tCommon('wstside')}
               </p>
               <p className='text-xs font-medium ws-muted'>
-                Life Operating System
+                {tCommon('tagline')}
               </p>
             </div>
           </div>
@@ -25,7 +30,7 @@ export default function LoginPage() {
           </div>
 
           <p className='text-center text-xs ws-muted md:text-left'>
-            Organize sua vida, acompanhe sua evolução e tome decisões melhores.
+            {t('footer')}
           </p>
         </div>
 
@@ -35,41 +40,38 @@ export default function LoginPage() {
           <div className='relative z-10 flex h-full flex-col justify-between'>
             <div className='space-y-4'>
               <div className='inline-flex rounded-full border border-current/10 bg-current/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.18em] backdrop-blur'>
-                Dashboard pessoal
+                {t('heroBadge')}
               </div>
 
               <h1 className='max-w-xl text-5xl font-black leading-[0.95] tracking-tight'>
-                Sua vida organizada em um painel central.
+                {t('heroTitle')}
               </h1>
 
               <p className='max-w-md text-base leading-7 opacity-75'>
-                Finanças, rotina, metas, hábitos e progresso pessoal conectados
-                em uma experiência simples, visual e responsiva.
+                {t('heroDescription')}
               </p>
             </div>
 
             <div className='grid gap-4'>
               <div className='rounded-[2rem] border border-current/10 bg-current/10 p-5 shadow-2xl backdrop-blur'>
                 <p className='text-xs font-bold uppercase tracking-[0.18em] opacity-75'>
-                  Máquina de capital
+                  {t('capitalMachine')}
                 </p>
-                <p className='mt-3 text-4xl font-black'>R$ 0,00</p>
-                <p className='mt-2 text-sm opacity-75'>
-                  Comece registrando seu patrimônio atual.
-                </p>
+                <p className='mt-3 text-4xl font-black'>{t('capitalValue')}</p>
+                <p className='mt-2 text-sm opacity-75'>{t('capitalStart')}</p>
               </div>
 
               <div className='grid grid-cols-2 gap-4'>
                 <div className='rounded-[1.5rem] border border-current/10 bg-current/10 p-5 backdrop-blur'>
                   <p className='text-xs font-bold uppercase tracking-wide opacity-75'>
-                    Rotina
+                    {t('routine')}
                   </p>
                   <p className='mt-2 text-3xl font-black'>0%</p>
                 </div>
 
                 <div className='rounded-[1.5rem] border border-current/10 bg-current/10 p-5 backdrop-blur'>
                   <p className='text-xs font-bold uppercase tracking-wide opacity-75'>
-                    Metas
+                    {t('goals')}
                   </p>
                   <p className='mt-2 text-3xl font-black'>0</p>
                 </div>

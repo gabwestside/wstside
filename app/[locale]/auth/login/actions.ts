@@ -1,7 +1,8 @@
 'use server'
 
-import { redirect } from 'next/navigation'
+import { getLocale, getTranslations } from 'next-intl/server'
 
+import { redirect } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/server'
 
 export type LoginState = {
@@ -12,12 +13,15 @@ export async function loginAction(
   _previousState: LoginState,
   formData: FormData,
 ): Promise<LoginState> {
+  const t = await getTranslations('Auth.login')
+  const locale = await getLocale()
+
   const email = String(formData.get('email') ?? '').trim()
   const password = String(formData.get('password') ?? '')
 
   if (!email || !password) {
     return {
-      error: 'Preencha seu e-mail e senha para continuar.',
+      error: t('requiredFields'),
     }
   }
 
@@ -30,9 +34,14 @@ export async function loginAction(
 
   if (error) {
     return {
-      error: 'E-mail ou senha inválidos. Verifique os dados e tente novamente.',
+      error: t('invalidCredentials'),
     }
   }
 
-  redirect('/dashboard')
+  redirect({
+    href: '/dashboard',
+    locale,
+  })
+
+  return {}
 }

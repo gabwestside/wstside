@@ -18,7 +18,12 @@
       "heroBadge": "Personal dashboard",
       "heroTitle": "Your life organized in a central panel.",
       "heroDescription": "Finances, routine, goals, habits and personal progress connected in a simple, visual and responsive experience.",
-      "footer": "Organize your life, track your progress and make better decisions."
+      "footer": "Organize your life, track your progress and make better decisions.",
+      "capitalMachine": "Capital machine",
+      "capitalValue": "$0.00",
+      "capitalStart": "Start by registering your current assets.",
+      "routine": "Routine",
+      "goals": "Goals"
     },
     "signup": {
       "badge": "Sign up",

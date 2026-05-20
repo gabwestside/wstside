@@ -2,7 +2,7 @@
 
 import { ArrowRight, Eye, LockKeyhole, Mail, Sparkles } from 'lucide-react'
 import { motion } from 'motion/react'
-import Link from 'next/link'
+import { useTranslations } from 'next-intl'
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
 
@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Link } from '@/i18n/navigation'
 
 const initialState: LoginState = {
   error: '',
@@ -25,6 +26,7 @@ const initialState: LoginState = {
 
 function SubmitButton() {
   const { pending } = useFormStatus()
+  const t = useTranslations('Auth.login')
 
   return (
     <Button
@@ -32,7 +34,7 @@ function SubmitButton() {
       disabled={pending}
       className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
     >
-      {pending ? 'Entrando...' : 'Entrar no WstSide'}
+      {pending ? t('submitting') : t('submit')}
       {!pending && <ArrowRight className='ml-2 size-4' />}
     </Button>
   )
@@ -40,6 +42,7 @@ function SubmitButton() {
 
 export function LoginForm() {
   const [state, formAction] = useActionState(loginAction, initialState)
+  const t = useTranslations('Auth.login')
 
   return (
     <motion.div
@@ -56,18 +59,17 @@ export function LoginForm() {
             </div>
 
             <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
-              V1
+              {t('badge')}
             </div>
           </div>
 
           <div className='space-y-2'>
             <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
-              Bem-vindo de volta
+              {t('title')}
             </CardTitle>
 
             <CardDescription className='text-base leading-relaxed ws-muted'>
-              Entre para acessar seu painel pessoal de rotina, finanças, metas e
-              evolução.
+              {t('description')}
             </CardDescription>
           </div>
         </CardHeader>
@@ -93,7 +95,7 @@ export function LoginForm() {
                 htmlFor='email'
                 className='text-sm font-semibold ws-heading'
               >
-                E-mail
+                {t('email')}
               </Label>
 
               <div className='relative'>
@@ -102,7 +104,7 @@ export function LoginForm() {
                   id='email'
                   name='email'
                   type='email'
-                  placeholder='seu@email.com'
+                  placeholder={t('emailPlaceholder')}
                   required
                   autoComplete='email'
                   className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
@@ -116,14 +118,14 @@ export function LoginForm() {
                   htmlFor='password'
                   className='text-sm font-semibold ws-heading'
                 >
-                  Senha
+                  {t('password')}
                 </Label>
 
                 <Link
                   href='/auth/forgot-password'
                   className='text-sm font-medium text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
                 >
-                  Esqueci minha senha
+                  {t('forgotPassword')}
                 </Link>
               </div>
 
@@ -133,7 +135,7 @@ export function LoginForm() {
                   id='password'
                   name='password'
                   type='password'
-                  placeholder='Digite sua senha'
+                  placeholder={t('passwordPlaceholder')}
                   required
                   autoComplete='current-password'
                   className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 pr-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
@@ -145,12 +147,12 @@ export function LoginForm() {
             <SubmitButton />
 
             <div className='pt-2 text-center text-sm ws-muted'>
-              Ainda não tem conta?{' '}
+              {t('noAccount')}{' '}
               <Link
                 href='/auth/sign-up'
                 className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
-                Criar conta
+                {t('createAccount')}
               </Link>
             </div>
           </form>

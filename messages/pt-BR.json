@@ -18,7 +18,12 @@
       "heroBadge": "Dashboard pessoal",
       "heroTitle": "Sua vida organizada em um painel central.",
       "heroDescription": "Finanças, rotina, metas, hábitos e progresso pessoal conectados em uma experiência simples, visual e responsiva.",
-      "footer": "Organize sua vida, acompanhe sua evolução e tome decisões melhores."
+      "footer": "Organize sua vida, acompanhe sua evolução e tome decisões melhores.",
+      "capitalMachine": "Máquina de capital",
+      "capitalValue": "R$ 0,00",
+      "capitalStart": "Comece registrando seu patrimônio atual.",
+      "routine": "Rotina",
+      "goals": "Metas"
     },
     "signup": {
       "badge": "Cadastro",
