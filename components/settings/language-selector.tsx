@@ -7,7 +7,7 @@ import { useTransition } from 'react'
 
 import { usePathname, useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { cn, removeLocalePrefix } from '@/lib/utils'
+import { cn } from '@/lib/utils'
 
 export function LanguageSelector() {
   const locale = useLocale()
@@ -22,31 +22,22 @@ export function LanguageSelector() {
       return
     }
 
-    const currentBrowserPathname =
-      typeof window !== 'undefined' ? window.location.pathname : pathname
-
-    const cleanPathname = removeLocalePrefix(currentBrowserPathname)
-
     const query = Object.fromEntries(searchParams.entries())
 
     startTransition(() => {
-      if (Object.keys(query).length > 0) {
-        router.replace(
-          {
-            pathname: cleanPathname,
-            query,
-          },
-          {
-            locale: nextLocale,
-          },
-        )
+      router.replace(
+        Object.keys(query).length > 0
+          ? {
+              pathname,
+              query,
+            }
+          : pathname,
+        {
+          locale: nextLocale,
+        },
+      )
 
-        return
-      }
-
-      router.replace(cleanPathname, {
-        locale: nextLocale,
-      })
+      router.refresh()
     })
   }
 

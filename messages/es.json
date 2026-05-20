@@ -137,5 +137,9 @@
       "description": "Tema rojo y azul inspirado en héroes urbanos.",
       "badge": "Hero"
     }
+  },
+  "Metadata": {
+    "title": "WstSide",
+    "description": "Sistema personal para organizar finanzas, rutina, metas y evolución personal."
   }
 }

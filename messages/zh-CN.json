@@ -137,5 +137,9 @@
       "description": "受城市英雄启发的红蓝主题。",
       "badge": "英雄"
     }
+  },
+  "Metadata": {
+    "title": "WstSide",
+    "description": "用于管理财务、日程、目标和个人成长的个人系统。"
   }
 }
