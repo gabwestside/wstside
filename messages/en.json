@@ -1,24 +1,4 @@
 {
-  "Sidebar": {
-    "v1Title": "V1 in progress",
-    "v1Description": "Login, dashboard, finances and routine."
-  },
-  "Navigation": {
-    "dashboard": "Dashboard",
-    "finances": "Finances",
-    "routine": "Routine",
-    "goals": "Goals",
-    "menu": "Menu",
-    "home": "Home",
-    "logout": "Sign out"
-  },
-  "Common": {
-    "wstside": "WstSide",
-    "tagline": "Life Operating System",
-    "loadingPanel": "Loading your panel...",
-    "backToDashboard": "Back to dashboard",
-    "settings": "Settings"
-  },
   "Auth": {
     "login": {
       "badge": "V1",
@@ -91,6 +71,26 @@
       "sendToAnotherEmail": "Send to another email"
     }
   },
+  "Sidebar": {
+    "v1Title": "V1 in progress",
+    "v1Description": "Login, dashboard, finances and routine."
+  },
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "finances": "Finances",
+    "routine": "Routine",
+    "goals": "Goals",
+    "menu": "Menu",
+    "home": "Home",
+    "logout": "Sign out"
+  },
+  "Common": {
+    "wstside": "WstSide",
+    "tagline": "Life Operating System",
+    "loadingPanel": "Loading your panel...",
+    "backToDashboard": "Back to dashboard",
+    "settings": "Settings"
+  },
   "Settings": {
     "settings": "Settings",
     "title": "WstSide Center",
@@ -110,5 +110,32 @@
     "en": "English",
     "es": "Spanish",
     "zh-CN": "Simplified Chinese"
+  },
+  "Themes": {
+    "wstsideLight": {
+      "label": "WstSide Light",
+      "description": "Default light, green and minimal theme.",
+      "badge": "Current"
+    },
+    "wstsideDark": {
+      "label": "WstSide Dark",
+      "description": "Premium dark theme with emerald accents.",
+      "badge": "Dark"
+    },
+    "christmas": {
+      "label": "Christmas",
+      "description": "Pine green, holiday red and golden details.",
+      "badge": "Seasonal"
+    },
+    "spaceOdyssey": {
+      "label": "Space Odyssey",
+      "description": "Deep blue, cosmic purple and cyan glow.",
+      "badge": "Cosmic"
+    },
+    "spider": {
+      "label": "Urban Spider",
+      "description": "Red and blue theme inspired by urban heroes.",
+      "badge": "Hero"
+    }
   }
 }

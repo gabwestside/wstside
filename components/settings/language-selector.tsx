@@ -2,15 +2,53 @@
 
 import { CheckCircle2, Languages } from 'lucide-react'
 import { useLocale, useTranslations } from 'next-intl'
+import { useSearchParams } from 'next/navigation'
+import { useTransition } from 'react'
 
-import { Link, usePathname } from '@/i18n/navigation'
+import { usePathname, useRouter } from '@/i18n/navigation'
 import { routing } from '@/i18n/routing'
-import { cn } from '@/lib/utils'
+import { cn, removeLocalePrefix } from '@/lib/utils'
 
 export function LanguageSelector() {
   const locale = useLocale()
   const pathname = usePathname()
+  const router = useRouter()
+  const searchParams = useSearchParams()
   const t = useTranslations('Languages')
+  const [isPending, startTransition] = useTransition()
+
+  function handleChangeLocale(nextLocale: (typeof routing.locales)[number]) {
+    if (nextLocale === locale) {
+      return
+    }
+
+    const currentBrowserPathname =
+      typeof window !== 'undefined' ? window.location.pathname : pathname
+
+    const cleanPathname = removeLocalePrefix(currentBrowserPathname)
+
+    const query = Object.fromEntries(searchParams.entries())
+
+    startTransition(() => {
+      if (Object.keys(query).length > 0) {
+        router.replace(
+          {
+            pathname: cleanPathname,
+            query,
+          },
+          {
+            locale: nextLocale,
+          },
+        )
+
+        return
+      }
+
+      router.replace(cleanPathname, {
+        locale: nextLocale,
+      })
+    })
+  }
 
   return (
     <div className='grid gap-3 sm:grid-cols-3'>
@@ -18,12 +56,13 @@ export function LanguageSelector() {
         const isActive = locale === item
 
         return (
-          <Link
+          <button
             key={item}
-            href={pathname}
-            locale={item}
+            type='button'
+            disabled={isPending || isActive}
+            onClick={() => handleChangeLocale(item)}
             className={cn(
-              'group rounded-[1.75rem] border p-4 text-left transition ws-surface hover:-translate-y-0.5',
+              'group rounded-[1.75rem] border p-4 text-left transition ws-surface hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-80',
               isActive
                 ? 'border-[var(--ws-primary)] ring-2 ring-[var(--ws-primary)]/25'
                 : 'ws-border',
@@ -43,7 +82,7 @@ export function LanguageSelector() {
               <p className='font-black ws-heading'>{t(item)}</p>
               <p className='mt-1 text-sm leading-6 ws-muted'>{item}</p>
             </div>
-          </Link>
+          </button>
         )
       })}
     </div>

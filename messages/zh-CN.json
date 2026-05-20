@@ -1,24 +1,4 @@
 {
-  "Navigation": {
-    "dashboard": "仪表盘",
-    "finances": "财务",
-    "routine": "日程",
-    "goals": "目标",
-    "menu": "菜单",
-    "home": "首页",
-    "logout": "退出登录"
-  },
-  "Common": {
-    "wstside": "WstSide",
-    "tagline": "生活操作系统",
-    "loadingPanel": "正在加载你的面板...",
-    "backToDashboard": "返回仪表盘",
-    "settings": "设置"
-  },
-  "Sidebar": {
-    "v1Title": "V1 开发中",
-    "v1Description": "登录、仪表盘、财务和日程。"
-  },
   "Auth": {
     "login": {
       "badge": "V1",
@@ -91,6 +71,26 @@
       "sendToAnotherEmail": "发送到其他邮箱"
     }
   },
+  "Sidebar": {
+    "v1Title": "V1 开发中",
+    "v1Description": "登录、仪表盘、财务和日程。"
+  },
+  "Navigation": {
+    "dashboard": "仪表盘",
+    "finances": "财务",
+    "routine": "日程",
+    "goals": "目标",
+    "menu": "菜单",
+    "home": "首页",
+    "logout": "退出登录"
+  },
+  "Common": {
+    "wstside": "WstSide",
+    "tagline": "生活操作系统",
+    "loadingPanel": "正在加载你的面板...",
+    "backToDashboard": "返回仪表盘",
+    "settings": "设置"
+  },
   "Settings": {
     "settings": "设置",
     "title": "WstSide 中心",
@@ -110,5 +110,32 @@
     "en": "英语",
     "es": "西班牙语",
     "zh-CN": "简体中文"
+  },
+  "Themes": {
+    "wstsideLight": {
+      "label": "WstSide 浅色",
+      "description": "默认的浅色、绿色、极简主题。",
+      "badge": "当前"
+    },
+    "wstsideDark": {
+      "label": "WstSide 深色",
+      "description": "带有祖母绿点缀的高级深色主题。",
+      "badge": "深色"
+    },
+    "christmas": {
+      "label": "圣诞",
+      "description": "松绿色、节日红和金色细节。",
+      "badge": "季节"
+    },
+    "spaceOdyssey": {
+      "label": "太空漫游",
+      "description": "深蓝、宇宙紫和青色光效。",
+      "badge": "宇宙"
+    },
+    "spider": {
+      "label": "城市蜘蛛",
+      "description": "受城市英雄启发的红蓝主题。",
+      "badge": "英雄"
+    }
   }
 }

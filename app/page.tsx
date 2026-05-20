@@ -1,5 +1,12 @@
-import { redirect } from 'next/navigation'
+import { getLocale } from 'next-intl/server'
 
-export default function HomePage() {
-  redirect('/dashboard')
+import { redirect } from '@/i18n/navigation'
+
+export default async function HomePage() {
+  const locale = await getLocale()
+
+  redirect({
+    href: '/dashboard',
+    locale,
+  })
 }

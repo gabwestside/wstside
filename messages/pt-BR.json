@@ -1,24 +1,4 @@
 {
-  "Sidebar": {
-    "v1Title": "V1 em progresso",
-    "v1Description": "Login, dashboard, finanças e rotina."
-  },
-  "Navigation": {
-    "dashboard": "Dashboard",
-    "finances": "Finanças",
-    "routine": "Rotina",
-    "goals": "Metas",
-    "menu": "Menu",
-    "home": "Início",
-    "logout": "Sair"
-  },
-  "Common": {
-    "wstside": "WstSide",
-    "tagline": "Life Operating System",
-    "loadingPanel": "Carregando seu painel...",
-    "backToDashboard": "Voltar para dashboard",
-    "settings": "Configurações"
-  },
   "Auth": {
     "login": {
       "badge": "V1",
@@ -91,6 +71,26 @@
       "sendToAnotherEmail": "Enviar para outro e-mail"
     }
   },
+  "Sidebar": {
+    "v1Title": "V1 em progresso",
+    "v1Description": "Login, dashboard, finanças e rotina."
+  },
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "finances": "Finanças",
+    "routine": "Rotina",
+    "goals": "Metas",
+    "menu": "Menu",
+    "home": "Início",
+    "logout": "Sair"
+  },
+  "Common": {
+    "wstside": "WstSide",
+    "tagline": "Life Operating System",
+    "loadingPanel": "Carregando seu painel...",
+    "backToDashboard": "Voltar para dashboard",
+    "settings": "Configurações"
+  },
   "Settings": {
     "settings": "Configurações",
     "title": "Central do WstSide",
@@ -110,5 +110,32 @@
     "en": "Inglês",
     "es": "Espanhol",
     "zh-CN": "Chinês simplificado"
+  },
+  "Themes": {
+    "wstsideLight": {
+      "label": "WstSide Light",
+      "description": "Tema padrão claro, verde e minimalista.",
+      "badge": "Atual"
+    },
+    "wstsideDark": {
+      "label": "WstSide Dark",
+      "description": "Tema escuro premium com verde esmeralda.",
+      "badge": "Escuro"
+    },
+    "christmas": {
+      "label": "Natal",
+      "description": "Verde pinheiro, vermelho natalino e detalhes dourados.",
+      "badge": "Sazonal"
+    },
+    "spaceOdyssey": {
+      "label": "Odisseia Espacial",
+      "description": "Azul profundo, roxo cósmico e brilho ciano.",
+      "badge": "Cósmico"
+    },
+    "spider": {
+      "label": "Aranha Urbana",
+      "description": "Tema vermelho e azul, inspirado em heróis urbanos.",
+      "badge": "Hero"
+    }
   }
 }

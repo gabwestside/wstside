@@ -1,7 +1,95 @@
 {
+  "Auth": {
+    "login": {
+      "badge": "V1",
+      "title": "Bienvenido de nuevo",
+      "description": "Inicia sesión para acceder a tu panel personal de rutina, finanzas, metas y progreso.",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "submit": "Entrar en WstSide",
+      "submitting": "Iniciando sesión...",
+      "noAccount": "¿No tienes una cuenta?",
+      "createAccount": "Crear cuenta",
+      "invalidCredentials": "Correo electrónico o contraseña inválidos. Revisa tus datos e inténtalo de nuevo.",
+      "requiredFields": "Rellena tu correo y contraseña para continuar.",
+      "heroBadge": "Panel personal",
+      "heroTitle": "Tu vida organizada en un panel central.",
+      "heroDescription": "Finanzas, rutina, metas, hábitos y progreso personal conectados en una experiencia simple, visual y responsiva.",
+      "footer": "Organiza tu vida, sigue tu progreso y toma mejores decisiones."
+    },
+    "signup": {
+      "badge": "Regístrate",
+      "title": "Crea tu cuenta",
+      "description": "Comienza a crear tu panel personal para finanzas, rutina, metas y progreso.",
+      "name": "Nombre",
+      "namePlaceholder": "Tu nombre",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "password": "Contraseña",
+      "passwordPlaceholder": "Crea una contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "confirmPasswordPlaceholder": "Escribe tu contraseña de nuevo",
+      "submit": "Crear cuenta",
+      "submitting": "Creando cuenta...",
+      "alreadyHaveAccount": "¿Ya tienes una cuenta?",
+      "login": "Iniciar sesión",
+      "nameRequired": "Introduce tu nombre para continuar.",
+      "emailRequired": "Introduce tu correo electrónico para continuar.",
+      "passwordMin": "La contraseña debe tener al menos 6 caracteres.",
+      "passwordMismatch": "Las contraseñas no coinciden. Verifica e inténtalo de nuevo.",
+      "genericError": "No pudimos crear tu cuenta ahora mismo. Revisa tus datos e inténtalo de nuevo.",
+      "heroBadge": "Comienza tu progreso",
+      "heroTitle": "Convierte tu rutina en un sistema.",
+      "heroDescription": "WstSide centraliza tus finanzas, hábitos, metas y progreso personal en un solo lugar.",
+      "footer": "Crea tu base personal para organizar finanzas, rutina y metas."
+    },
+    "forgotPassword": {
+      "badge": "Recuperar",
+      "title": "Restablecer contraseña",
+      "description": "Introduce tu correo electrónico y te enviaremos un enlace para crear una nueva contraseña.",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "tu@email.com",
+      "submit": "Enviar enlace de recuperación",
+      "submitting": "Enviando...",
+      "remembered": "¿Recordaste tu contraseña?",
+      "login": "Iniciar sesión",
+      "noAccount": "¿No tienes una cuenta?",
+      "createAccount": "Crear cuenta",
+      "emailRequired": "Introduce tu correo electrónico para continuar.",
+      "genericError": "No pudimos enviar el correo de recuperación ahora mismo. Revisa el correo e inténtalo de nuevo.",
+      "successBadge": "Enviado",
+      "successTitle": "Revisa tu correo",
+      "successDescription": "Enviamos las instrucciones para restablecer tu contraseña.",
+      "successCardTitle": "Enlace de recuperación solicitado",
+      "successCardDescription": "Si el correo está registrado, recibirás un enlace para crear una nueva contraseña.",
+      "notFoundTitle": "¿No lo encontraste?",
+      "notFoundDescription": "Revisa tu bandeja de entrada, promociones, spam o papelera. El correo puede tardar unos minutos en llegar.",
+      "backToLogin": "Volver al inicio de sesión",
+      "sendToAnotherEmail": "Enviar a otro correo"
+    }
+  },
   "Sidebar": {
     "v1Title": "V1 en progreso",
     "v1Description": "Login, dashboard, finanzas y rutina."
+  },
+  "Navigation": {
+    "dashboard": "Panel",
+    "finances": "Finanzas",
+    "routine": "Rutina",
+    "goals": "Metas",
+    "menu": "Menú",
+    "home": "Inicio",
+    "logout": "Salir"
+  },
+  "Common": {
+    "wstside": "WstSide",
+    "tagline": "Sistema operativo de la vida",
+    "loadingPanel": "Cargando tu panel...",
+    "backToDashboard": "Volver al panel",
+    "settings": "Configuración"
   },
   "Settings": {
     "settings": "Configuración",
@@ -17,19 +105,37 @@
     "availableThemesDescription": "Selecciona una identidad visual para la aplicación.",
     "availableLanguages": "Idiomas disponibles"
   },
-  "Navigation": {
-    "dashboard": "Panel",
-    "finances": "Finanzas",
-    "routine": "Rutina",
-    "goals": "Metas",
-    "menu": "Menú",
-    "home": "Inicio",
-    "logout": "Salir"
-  },
   "Languages": {
     "pt-BR": "Portugués",
     "en": "Inglés",
     "es": "Español",
     "zh-CN": "Chino simplificado"
+  },
+  "Themes": {
+    "wstsideLight": {
+      "label": "WstSide Light",
+      "description": "Tema claro predeterminado, verde y minimalista.",
+      "badge": "Actual"
+    },
+    "wstsideDark": {
+      "label": "WstSide Dark",
+      "description": "Tema oscuro premium con detalles esmeralda.",
+      "badge": "Oscuro"
+    },
+    "christmas": {
+      "label": "Navidad",
+      "description": "Verde pino, rojo navideño y detalles dorados.",
+      "badge": "Temporal"
+    },
+    "spaceOdyssey": {
+      "label": "Odisea Espacial",
+      "description": "Azul profundo, púrpura cósmico y brillo cian.",
+      "badge": "Cósmico"
+    },
+    "spider": {
+      "label": "Araña Urbana",
+      "description": "Tema rojo y azul inspirado en héroes urbanos.",
+      "badge": "Hero"
+    }
   }
 }
