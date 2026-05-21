@@ -1,8 +1,8 @@
-import { redirect } from 'next/navigation'
-import { connection } from 'next/server'
+import { getLocale } from 'next-intl/server'
 import type { ReactNode } from 'react'
 
 import { AppShell, type AppUser } from '@/components/layout/app-shell'
+import { redirect } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/server'
 
 function getInitials(name: string) {
@@ -24,8 +24,7 @@ type PrivateAppLayoutProps = {
 }
 
 export async function PrivateAppLayout({ children }: PrivateAppLayoutProps) {
-  await connection()
-
+  const locale = await getLocale()
   const supabase = await createClient()
 
   const {
@@ -34,17 +33,20 @@ export async function PrivateAppLayout({ children }: PrivateAppLayoutProps) {
   } = await supabase.auth.getUser()
 
   if (error || !user) {
-    redirect('/auth/login')
+    redirect({
+      href: '/auth/login',
+      locale,
+    })
   }
 
   const name =
-    typeof user.user_metadata?.name === 'string' && user.user_metadata.name
+    typeof user?.user_metadata?.name === 'string' && user?.user_metadata.name
       ? user.user_metadata.name
-      : (user.email?.split('@')[0] ?? 'Usuário')
+      : (user?.email?.split('@')[0] ?? 'Usuário')
 
   const appUser: AppUser = {
     name,
-    email: user.email ?? '',
+    email: user?.email ?? '',
     initials: getInitials(name),
   }
 
