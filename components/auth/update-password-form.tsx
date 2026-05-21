@@ -2,8 +2,7 @@
 
 import { ArrowRight, Eye, LockKeyhole, ShieldCheck } from 'lucide-react'
 import { motion } from 'motion/react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -17,11 +16,14 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Link, useRouter } from '@/i18n/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
 
 export function UpdatePasswordForm({ className }: { className?: string }) {
   const router = useRouter()
+  const locale = useLocale()
+  const t = useTranslations('Auth.updatePassword')
 
   const [password, setPassword] = useState('')
   const [repeatPassword, setRepeatPassword] = useState('')
@@ -35,13 +37,13 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
     setError(null)
 
     if (password.length < 6) {
-      setError('A nova senha precisa ter pelo menos 6 caracteres.')
+      setError(t('passwordMin'))
       setIsLoading(false)
       return
     }
 
     if (password !== repeatPassword) {
-      setError('As senhas não conferem. Verifique e tente novamente.')
+      setError(t('passwordMismatch'))
       setIsLoading(false)
       return
     }
@@ -57,11 +59,11 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
         throw error
       }
 
-      router.push('/dashboard')
+      router.push('/dashboard', {
+        locale,
+      })
     } catch {
-      setError(
-        'Não foi possível atualizar sua senha. Solicite um novo link de recuperação e tente novamente.',
-      )
+      setError(t('genericError'))
     } finally {
       setIsLoading(false)
     }
@@ -82,17 +84,17 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
             </div>
 
             <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
-              Segurança
+              {t('badge')}
             </div>
           </div>
 
           <div className='space-y-2'>
             <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
-              Criar nova senha
+              {t('title')}
             </CardTitle>
 
             <CardDescription className='text-base leading-relaxed ws-muted'>
-              Informe sua nova senha para recuperar o acesso ao WstSide.
+              {t('description')}
             </CardDescription>
           </div>
         </CardHeader>
@@ -118,7 +120,7 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
                 htmlFor='password'
                 className='text-sm font-semibold ws-heading'
               >
-                Nova senha
+                {t('password')}
               </Label>
 
               <div className='relative'>
@@ -127,7 +129,7 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
                   id='password'
                   name='password'
                   type='password'
-                  placeholder='Digite sua nova senha'
+                  placeholder={t('passwordPlaceholder')}
                   required
                   autoComplete='new-password'
                   value={password}
@@ -143,7 +145,7 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
                 htmlFor='repeat-password'
                 className='text-sm font-semibold ws-heading'
               >
-                Confirmar nova senha
+                {t('confirmPassword')}
               </Label>
 
               <div className='relative'>
@@ -152,7 +154,7 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
                   id='repeat-password'
                   name='repeat-password'
                   type='password'
-                  placeholder='Digite a senha novamente'
+                  placeholder={t('confirmPasswordPlaceholder')}
                   required
                   autoComplete='new-password'
                   value={repeatPassword}
@@ -164,10 +166,11 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
             </div>
 
             <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
-              <p className='text-sm font-bold ws-heading'>Dica de segurança</p>
+              <p className='text-sm font-bold ws-heading'>
+                {t('securityTipTitle')}
+              </p>
               <p className='mt-1 text-sm leading-6 ws-muted'>
-                Use uma senha com letras, números e símbolos. Evite repetir
-                senhas usadas em outros serviços.
+                {t('securityTipDescription')}
               </p>
             </div>
 
@@ -176,17 +179,17 @@ export function UpdatePasswordForm({ className }: { className?: string }) {
               disabled={isLoading}
               className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
             >
-              {isLoading ? 'Salvando...' : 'Salvar nova senha'}
+              {isLoading ? t('submitting') : t('submit')}
               {!isLoading && <ArrowRight className='ml-2 size-4' />}
             </Button>
 
             <div className='pt-2 text-center text-sm ws-muted'>
-              Já atualizou sua senha?{' '}
+              {t('alreadyUpdated')}{' '}
               <Link
                 href='/auth/login'
                 className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
-                Entrar
+                {t('login')}
               </Link>
             </div>
           </form>
