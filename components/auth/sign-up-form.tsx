@@ -28,10 +28,13 @@ import { routing } from '@/i18n/routing'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
 
-function getLocalizedDashboardUrl(origin: string, locale: string) {
+function getLocalizedConfirmUrl(origin: string, locale: string) {
   const localePrefix = locale === routing.defaultLocale ? '' : `/${locale}`
 
-  return `${origin}${localePrefix}/dashboard`
+  const confirmUrl = new URL(`${origin}${localePrefix}/auth/confirm`)
+  confirmUrl.searchParams.set('next', '/dashboard')
+
+  return confirmUrl.toString()
 }
 
 export function SignUpForm({
@@ -92,7 +95,7 @@ export function SignUpForm({
           data: {
             name: trimmedName,
           },
-          emailRedirectTo: getLocalizedDashboardUrl(
+          emailRedirectTo: getLocalizedConfirmUrl(
             window.location.origin,
             locale,
           ),

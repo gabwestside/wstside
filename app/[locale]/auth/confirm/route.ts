@@ -1,30 +1,97 @@
-import { createClient } from "@/lib/supabase/server";
-import { type EmailOtpType } from "@supabase/supabase-js";
-import { redirect } from "next/navigation";
-import { type NextRequest } from "next/server";
+import { routing } from '@/i18n/routing'
+import { createClient } from '@/lib/supabase/server'
+import { type EmailOtpType } from '@supabase/supabase-js'
+import { hasLocale } from 'next-intl'
+import { type NextRequest, NextResponse } from 'next/server'
 
-export async function GET(request: NextRequest) {
-  const { searchParams } = new URL(request.url);
-  const token_hash = searchParams.get("token_hash");
-  const type = searchParams.get("type") as EmailOtpType | null;
-  const next = searchParams.get("next") ?? "/";
+type ConfirmRouteContext = {
+  params: Promise<{
+    locale: string
+  }>
+}
 
-  if (token_hash && type) {
-    const supabase = await createClient();
+function getLocalePrefix(locale: string) {
+  return locale === routing.defaultLocale ? '' : `/${locale}`
+}
 
-    const { error } = await supabase.auth.verifyOtp({
-      type,
-      token_hash,
-    });
-    if (!error) {
-      // redirect user to specified redirect URL or root of app
-      redirect(next);
-    } else {
-      // redirect the user to an error page with some instructions
-      redirect(`/auth/error?error=${error?.message}`);
-    }
+function getSafeNextPath(next: string | null, locale: string) {
+  const localePrefix = getLocalePrefix(locale)
+
+  if (!next) {
+    return `${localePrefix}/dashboard`
   }
 
-  // redirect the user to an error page with some instructions
-  redirect(`/auth/error?error=No token hash or type`);
+  /**
+   * Bloqueia redirects externos como:
+   * https://site-malicioso.com
+   * //site-malicioso.com
+   */
+  if (!next.startsWith('/') || next.startsWith('//')) {
+    return `${localePrefix}/dashboard`
+  }
+
+  /**
+   * Evita duplicar locale:
+   * /en/dashboard dentro da rota /en/auth/confirm
+   */
+  const localePattern = new RegExp(
+    `^/(${routing.locales
+      .map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+      .join('|')})(?=/|$)`,
+  )
+
+  const cleanNext = next.replace(localePattern, '') || '/dashboard'
+
+  return `${localePrefix}${cleanNext}`
+}
+
+function getErrorUrl(request: NextRequest, locale: string, error: string) {
+  const url = request.nextUrl.clone()
+  const localePrefix = getLocalePrefix(locale)
+
+  url.pathname = `${localePrefix}/auth/error`
+  url.search = ''
+  url.searchParams.set('error', error)
+
+  return url
+}
+
+export async function GET(
+  request: NextRequest,
+  { params }: ConfirmRouteContext,
+) {
+  const { locale: rawLocale } = await params
+
+  const locale = hasLocale(routing.locales, rawLocale)
+    ? rawLocale
+    : routing.defaultLocale
+
+  const requestUrl = request.nextUrl
+  const tokenHash = requestUrl.searchParams.get('token_hash')
+  const type = requestUrl.searchParams.get('type') as EmailOtpType | null
+  const next = requestUrl.searchParams.get('next')
+
+  if (!tokenHash || !type) {
+    return NextResponse.redirect(
+      getErrorUrl(request, locale, 'No token hash or type'),
+    )
+  }
+
+  const supabase = await createClient()
+
+  const { error } = await supabase.auth.verifyOtp({
+    type,
+    token_hash: tokenHash,
+  })
+
+  if (error) {
+    return NextResponse.redirect(getErrorUrl(request, locale, error.message))
+  }
+
+  const redirectUrl = request.nextUrl.clone()
+
+  redirectUrl.pathname = getSafeNextPath(next, locale)
+  redirectUrl.search = ''
+
+  return NextResponse.redirect(redirectUrl)
 }
