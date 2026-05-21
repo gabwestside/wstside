@@ -49,7 +49,13 @@
       "heroBadge": "Start your progress",
       "heroTitle": "Turn your routine into a system.",
       "heroDescription": "WstSide centralizes your finances, habits, goals and personal progress in one place.",
-      "footer": "Create your personal base to organize finances, routine and goals."
+      "footer": "Create your personal base to organize finances, routine and goals.",
+      "firstStepEyebrow": "First step",
+      "firstStepTitle": "Create account",
+      "firstStepDescription": "After that, we'll configure your assets, routine and goals.",
+      "financeStep": "Finances",
+      "routineStep": "Routine",
+      "goalsStep": "Goals"
     },
     "forgotPassword": {
       "badge": "Recover",

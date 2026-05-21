@@ -49,7 +49,13 @@
       "heroBadge": "开始你的成长",
       "heroTitle": "把你的日程变成一个系统。",
       "heroDescription": "WstSide 会把你的财务、习惯、目标和个人成长集中在一个地方。",
-      "footer": "创建你的个人基础，用来管理财务、日程和目标。"
+      "footer": "创建你的个人基础，用来管理财务、日程和目标。",
+      "firstStepEyebrow": "第一步",
+      "firstStepTitle": "创建账户",
+      "firstStepDescription": "之后，我们会配置你的资产、日程和目标。",
+      "financeStep": "财务",
+      "routineStep": "日程",
+      "goalsStep": "目标"
     },
     "forgotPassword": {
       "badge": "恢复",

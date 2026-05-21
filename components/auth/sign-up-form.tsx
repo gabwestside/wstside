@@ -9,8 +9,7 @@ import {
   User,
 } from 'lucide-react'
 import { motion } from 'motion/react'
-import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -24,14 +23,24 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Link, useRouter } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
+
+function getLocalizedDashboardUrl(origin: string, locale: string) {
+  const localePrefix = locale === routing.defaultLocale ? '' : `/${locale}`
+
+  return `${origin}${localePrefix}/dashboard`
+}
 
 export function SignUpForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<typeof motion.div>) {
   const router = useRouter()
+  const locale = useLocale()
+  const t = useTranslations('Auth.signup')
 
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -50,25 +59,25 @@ export function SignUpForm({
     setError(null)
 
     if (!trimmedName) {
-      setError('Informe seu nome para continuar.')
+      setError(t('nameRequired'))
       setIsLoading(false)
       return
     }
 
     if (!trimmedEmail) {
-      setError('Informe seu e-mail para continuar.')
+      setError(t('emailRequired'))
       setIsLoading(false)
       return
     }
 
     if (password.length < 6) {
-      setError('A senha precisa ter pelo menos 6 caracteres.')
+      setError(t('passwordMin'))
       setIsLoading(false)
       return
     }
 
     if (password !== repeatPassword) {
-      setError('As senhas não conferem. Verifique e tente novamente.')
+      setError(t('passwordMismatch'))
       setIsLoading(false)
       return
     }
@@ -83,7 +92,10 @@ export function SignUpForm({
           data: {
             name: trimmedName,
           },
-          emailRedirectTo: `${window.location.origin}/dashboard`,
+          emailRedirectTo: getLocalizedDashboardUrl(
+            window.location.origin,
+            locale,
+          ),
         },
       })
 
@@ -91,11 +103,11 @@ export function SignUpForm({
         throw error
       }
 
-      router.push('/auth/sign-up-success')
+      router.push('/auth/sign-up-success', {
+        locale,
+      })
     } catch {
-      setError(
-        'Não foi possível criar sua conta agora. Verifique os dados e tente novamente.',
-      )
+      setError(t('genericError'))
     } finally {
       setIsLoading(false)
     }
@@ -117,18 +129,17 @@ export function SignUpForm({
             </div>
 
             <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
-              Cadastro
+              {t('badge')}
             </div>
           </div>
 
           <div className='space-y-2'>
             <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
-              Crie sua conta
+              {t('title')}
             </CardTitle>
 
             <CardDescription className='text-base leading-relaxed ws-muted'>
-              Comece a montar seu painel pessoal de finanças, rotina, metas e
-              evolução.
+              {t('description')}
             </CardDescription>
           </div>
         </CardHeader>
@@ -154,7 +165,7 @@ export function SignUpForm({
                 htmlFor='name'
                 className='text-sm font-semibold ws-heading'
               >
-                Nome
+                {t('name')}
               </Label>
 
               <div className='relative'>
@@ -163,7 +174,7 @@ export function SignUpForm({
                   id='name'
                   name='name'
                   type='text'
-                  placeholder='Seu nome'
+                  placeholder={t('namePlaceholder')}
                   required
                   autoComplete='name'
                   value={name}
@@ -178,7 +189,7 @@ export function SignUpForm({
                 htmlFor='email'
                 className='text-sm font-semibold ws-heading'
               >
-                E-mail
+                {t('email')}
               </Label>
 
               <div className='relative'>
@@ -187,7 +198,7 @@ export function SignUpForm({
                   id='email'
                   name='email'
                   type='email'
-                  placeholder='seu@email.com'
+                  placeholder={t('emailPlaceholder')}
                   required
                   autoComplete='email'
                   value={email}
@@ -202,7 +213,7 @@ export function SignUpForm({
                 htmlFor='password'
                 className='text-sm font-semibold ws-heading'
               >
-                Senha
+                {t('password')}
               </Label>
 
               <div className='relative'>
@@ -211,7 +222,7 @@ export function SignUpForm({
                   id='password'
                   name='password'
                   type='password'
-                  placeholder='Crie uma senha'
+                  placeholder={t('passwordPlaceholder')}
                   required
                   autoComplete='new-password'
                   value={password}
@@ -227,7 +238,7 @@ export function SignUpForm({
                 htmlFor='repeat-password'
                 className='text-sm font-semibold ws-heading'
               >
-                Confirmar senha
+                {t('confirmPassword')}
               </Label>
 
               <div className='relative'>
@@ -236,7 +247,7 @@ export function SignUpForm({
                   id='repeat-password'
                   name='repeat-password'
                   type='password'
-                  placeholder='Digite a senha novamente'
+                  placeholder={t('confirmPasswordPlaceholder')}
                   required
                   autoComplete='new-password'
                   value={repeatPassword}
@@ -252,17 +263,17 @@ export function SignUpForm({
               disabled={isLoading}
               className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
             >
-              {isLoading ? 'Criando conta...' : 'Criar conta'}
+              {isLoading ? t('submitting') : t('submit')}
               {!isLoading && <ArrowRight className='ml-2 size-4' />}
             </Button>
 
             <div className='pt-2 text-center text-sm ws-muted'>
-              Já tem uma conta?{' '}
+              {t('alreadyHaveAccount')}{' '}
               <Link
                 href='/auth/login'
                 className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
-                Entrar
+                {t('login')}
               </Link>
             </div>
           </form>

@@ -49,7 +49,13 @@
       "heroBadge": "Comece sua evolução",
       "heroTitle": "Transforme sua rotina em um sistema.",
       "heroDescription": "O WstSide vai centralizar sua vida financeira, seus hábitos, suas metas e sua evolução pessoal em um só lugar.",
-      "footer": "Crie sua base pessoal para organizar finanças, rotina e metas."
+      "footer": "Crie sua base pessoal para organizar finanças, rotina e metas.",
+      "firstStepEyebrow": "Primeiro passo",
+      "firstStepTitle": "Criar conta",
+      "firstStepDescription": "Depois disso, vamos configurar seu patrimônio, rotina e metas.",
+      "financeStep": "Finanças",
+      "routineStep": "Rotina",
+      "goalsStep": "Metas"
     },
     "forgotPassword": {
       "badge": "Recuperar",

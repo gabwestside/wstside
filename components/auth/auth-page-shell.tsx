@@ -103,7 +103,13 @@ export async function AuthPageShell({
                 ) : null}
 
                 {stats.length > 0 ? (
-                  <div className='grid grid-cols-2 gap-4'>
+                  <div
+                    className={
+                      stats.length >= 3
+                        ? 'grid grid-cols-3 gap-4'
+                        : 'grid grid-cols-2 gap-4'
+                    }
+                  >
                     {stats.map((stat) => (
                       <div
                         key={stat.labelKey}
