@@ -29,18 +29,9 @@ export default async function NotFoundPage() {
         descriptionKey: 'highlightDescription',
       }}
       stats={[
-        {
-          labelKey: 'checkStep',
-          value: '01',
-        },
-        {
-          labelKey: 'returnStep',
-          value: '02',
-        },
-        {
-          labelKey: 'continueStep',
-          value: '03',
-        },
+        { labelKey: 'checkStep', value: '01' },
+        { labelKey: 'returnStep', value: '02' },
+        { labelKey: 'continueStep', value: '03' },
       ]}
     >
       <Card className='w-full overflow-hidden rounded-[2rem] border ws-border ws-surface shadow-2xl backdrop-blur-xl'>

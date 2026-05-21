@@ -8,19 +8,17 @@ export default function GlobalNotFoundPage() {
           404
         </div>
 
-        <h1 className='mt-6 text-3xl font-black ws-heading'>
-          Página não encontrada
-        </h1>
+        <h1 className='mt-6 text-3xl font-black ws-heading'>Page not found</h1>
 
         <p className='mt-2 text-sm leading-6 ws-muted'>
-          A página solicitada não existe ou foi movida.
+          The route you tried to access does not exist or was moved.
         </p>
 
         <Link
           href='/auth/login'
           className='mt-6 inline-flex h-12 w-full items-center justify-center rounded-2xl ws-primary text-sm font-bold shadow-lg'
         >
-          Voltar para login
+          Back to Login
         </Link>
       </div>
     </main>
