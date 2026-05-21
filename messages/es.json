@@ -165,6 +165,61 @@
       "accessStep": "Acceso"
     }
   },
+  "Dashboard": {
+    "badge": "Dashboard inicial",
+    "title": "Tu panel WstSide",
+    "newRecord": "Nuevo registro",
+    "cards": {
+      "currentAssets": {
+        "label": "Patrimonio actual",
+        "description": "Comienza registrando tus cuentas, reservas o inversiones."
+      },
+      "monthIncome": {
+        "label": "Ingresos del mes",
+        "description": "Las entradas financieras aparecerán aquí."
+      },
+      "monthExpenses": {
+        "label": "Gastos del mes",
+        "description": "Las salidas financieras aparecerán aquí."
+      },
+      "streak": {
+        "label": "Días invicto",
+        "value": "{count} días",
+        "description": "Tu racha comienza cuando la rutina esté activa."
+      }
+    },
+    "monthlySummary": {
+      "title": "Resumen mensual",
+      "description": "Vista inicial de tu flujo financiero.",
+      "balance": "Saldo del mes",
+      "savings": "Ahorro",
+      "records": "Registros"
+    },
+    "todayRoutine": {
+      "title": "Rutina de hoy",
+      "description": "Progreso diario de los hábitos principales.",
+      "completed": "Completado",
+      "createRoutine": "Crear rutina"
+    },
+    "financialGoals": {
+      "title": "Metas financieras",
+      "description": "Tus metas simples aparecerán aquí.",
+      "emptyTitle": "Ninguna meta activa",
+      "emptyDescription": "Crea tu primera meta para acompañar progreso y plazo.",
+      "createGoal": "Crear meta"
+    },
+    "v1NextSteps": {
+      "title": "Próximos pasos de la V1",
+      "description": "Completa esta base para liberar el dashboard real con datos.",
+      "items": {
+        "registerCurrentAssets": "Registrar tu patrimonio actual",
+        "registerFirstIncome": "Registrar tu primer ingreso",
+        "registerFirstExpense": "Registrar tu primer gasto",
+        "createFinancialGoal": "Crear una meta financiera",
+        "buildDailyRoutine": "Montar tu rutina diaria"
+      }
+    }
+  },
   "NotFound": {
     "title": "Página no encontrada",
     "description": "La ruta que intentaste acceder no existe o fue movida.",

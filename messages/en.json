@@ -165,6 +165,61 @@
       "accessStep": "Access"
     }
   },
+  "Dashboard": {
+    "badge": "Initial dashboard",
+    "title": "Your WstSide panel",
+    "newRecord": "New record",
+    "cards": {
+      "currentAssets": {
+        "label": "Current assets",
+        "description": "Start by registering your accounts, reserves or investments."
+      },
+      "monthIncome": {
+        "label": "Monthly income",
+        "description": "Financial inflows will appear here."
+      },
+      "monthExpenses": {
+        "label": "Monthly expenses",
+        "description": "Financial outflows will appear here."
+      },
+      "streak": {
+        "label": "Undefeated days",
+        "value": "{count} days",
+        "description": "Your streak starts when your routine is active."
+      }
+    },
+    "monthlySummary": {
+      "title": "Monthly summary",
+      "description": "Initial view of your financial flow.",
+      "balance": "Monthly balance",
+      "savings": "Savings",
+      "records": "Records"
+    },
+    "todayRoutine": {
+      "title": "Today's routine",
+      "description": "Daily progress of your main habits.",
+      "completed": "Completed",
+      "createRoutine": "Create routine"
+    },
+    "financialGoals": {
+      "title": "Financial goals",
+      "description": "Your simple goals will appear here.",
+      "emptyTitle": "No active goals",
+      "emptyDescription": "Create your first goal to track progress and deadline.",
+      "createGoal": "Create goal"
+    },
+    "v1NextSteps": {
+      "title": "Next steps for V1",
+      "description": "Complete this foundation to unlock the real dashboard with data.",
+      "items": {
+        "registerCurrentAssets": "Register your current assets",
+        "registerFirstIncome": "Register your first income",
+        "registerFirstExpense": "Register your first expense",
+        "createFinancialGoal": "Create a financial goal",
+        "buildDailyRoutine": "Build your daily routine"
+      }
+    }
+  },
   "NotFound": {
     "title": "Page not found",
     "description": "The route you tried to access does not exist or was moved.",

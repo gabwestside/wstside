@@ -9,7 +9,8 @@ import {
   TrendingUp,
   WalletCards,
 } from 'lucide-react'
-import Link from 'next/link'
+import { hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
 import { connection } from 'next/server'
 
 import { Badge } from '@/components/ui/badge'
@@ -22,36 +23,63 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 import { Progress } from '@/components/ui/progress'
+import { Link } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
 
 const nextSteps = [
-  'Cadastrar seu patrimônio atual',
-  'Registrar sua primeira receita',
-  'Registrar sua primeira despesa',
-  'Criar uma meta financeira',
-  'Montar sua rotina diária',
-]
+  'registerCurrentAssets',
+  'registerFirstIncome',
+  'registerFirstExpense',
+  'createFinancialGoal',
+  'buildDailyRoutine',
+] as const
 
-export default async function DashboardPage() {
+type DashboardPageProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export default async function DashboardPage({ params }: DashboardPageProps) {
   await connection()
 
-  const today = new Intl.DateTimeFormat('pt-BR', {
+  const { locale: rawLocale } = await params
+
+  const locale = hasLocale(routing.locales, rawLocale)
+    ? rawLocale
+    : routing.defaultLocale
+
+  const t = await getTranslations({
+    locale,
+    namespace: 'Dashboard',
+  })
+
+  const today = new Intl.DateTimeFormat(locale, {
     weekday: 'long',
     day: '2-digit',
     month: 'long',
   }).format(new Date())
+
+  const currencyFormatter = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
+  const zeroCurrency = currencyFormatter.format(0)
 
   return (
     <div className='space-y-6'>
       <section className='flex flex-col justify-between gap-4 lg:flex-row lg:items-end'>
         <div className='space-y-2'>
           <Badge className='rounded-full border ws-border ws-primary-soft px-3 py-1 hover:bg-[var(--ws-primary-soft)]'>
-            Dashboard inicial
+            {t('badge')}
           </Badge>
 
           <div>
             <h1 className='text-3xl font-black tracking-tight ws-heading sm:text-4xl'>
-              Seu painel WstSide
+              {t('title')}
             </h1>
+
             <p className='mt-2 text-sm font-medium capitalize ws-muted'>
               {today}
             </p>
@@ -65,7 +93,7 @@ export default async function DashboardPage() {
           >
             <Link href='/finances'>
               <Plus className='mr-2 size-4' />
-              Novo registro
+              {t('newRecord')}
             </Link>
           </Button>
         </div>
@@ -76,10 +104,10 @@ export default async function DashboardPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-primary-text)]'>
-                Patrimônio atual
+                {t('cards.currentAssets.label')}
               </CardDescription>
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
-                R$ 0,00
+                {zeroCurrency}
               </CardTitle>
             </div>
 
@@ -90,7 +118,7 @@ export default async function DashboardPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Comece cadastrando suas contas, reservas ou investimentos.
+              {t('cards.currentAssets.description')}
             </p>
           </CardContent>
         </Card>
@@ -99,10 +127,10 @@ export default async function DashboardPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-info)]'>
-                Receitas do mês
+                {t('cards.monthIncome.label')}
               </CardDescription>
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
-                R$ 0,00
+                {zeroCurrency}
               </CardTitle>
             </div>
 
@@ -120,7 +148,7 @@ export default async function DashboardPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Entradas financeiras aparecerão aqui.
+              {t('cards.monthIncome.description')}
             </p>
           </CardContent>
         </Card>
@@ -129,10 +157,10 @@ export default async function DashboardPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-danger)]'>
-                Despesas do mês
+                {t('cards.monthExpenses.label')}
               </CardDescription>
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
-                R$ 0,00
+                {zeroCurrency}
               </CardTitle>
             </div>
 
@@ -150,7 +178,7 @@ export default async function DashboardPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Saídas financeiras aparecerão aqui.
+              {t('cards.monthExpenses.description')}
             </p>
           </CardContent>
         </Card>
@@ -159,10 +187,10 @@ export default async function DashboardPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-warning)]'>
-                Dias invicto
+                {t('cards.streak.label')}
               </CardDescription>
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
-                0 dias
+                {t('cards.streak.value', { count: 0 })}
               </CardTitle>
             </div>
 
@@ -180,7 +208,7 @@ export default async function DashboardPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Seu streak começa quando a rotina estiver ativa.
+              {t('cards.streak.description')}
             </p>
           </CardContent>
         </Card>
@@ -192,10 +220,10 @@ export default async function DashboardPage() {
             <div className='flex items-center justify-between gap-3'>
               <div>
                 <CardTitle className='text-xl font-black ws-heading'>
-                  Resumo mensal
+                  {t('monthlySummary.title')}
                 </CardTitle>
                 <CardDescription className='ws-muted'>
-                  Visão inicial do seu fluxo financeiro.
+                  {t('monthlySummary.description')}
                 </CardDescription>
               </div>
 
@@ -210,17 +238,25 @@ export default async function DashboardPage() {
 
           <CardContent className='grid gap-4 md:grid-cols-3'>
             <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
-              <p className='text-sm font-bold ws-muted'>Saldo do mês</p>
-              <p className='mt-2 text-2xl font-black ws-heading'>R$ 0,00</p>
+              <p className='text-sm font-bold ws-muted'>
+                {t('monthlySummary.balance')}
+              </p>
+              <p className='mt-2 text-2xl font-black ws-heading'>
+                {zeroCurrency}
+              </p>
             </div>
 
             <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
-              <p className='text-sm font-bold ws-muted'>Economia</p>
+              <p className='text-sm font-bold ws-muted'>
+                {t('monthlySummary.savings')}
+              </p>
               <p className='mt-2 text-2xl font-black ws-heading'>0%</p>
             </div>
 
             <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
-              <p className='text-sm font-bold ws-muted'>Registros</p>
+              <p className='text-sm font-bold ws-muted'>
+                {t('monthlySummary.records')}
+              </p>
               <p className='mt-2 text-2xl font-black ws-heading'>0</p>
             </div>
           </CardContent>
@@ -231,10 +267,10 @@ export default async function DashboardPage() {
             <div className='flex items-center justify-between gap-3'>
               <div>
                 <CardTitle className='text-xl font-black ws-heading'>
-                  Rotina de hoje
+                  {t('todayRoutine.title')}
                 </CardTitle>
                 <CardDescription className='ws-muted'>
-                  Progresso diário dos hábitos principais.
+                  {t('todayRoutine.description')}
                 </CardDescription>
               </div>
 
@@ -253,7 +289,9 @@ export default async function DashboardPage() {
 
           <CardContent className='space-y-4'>
             <div className='flex items-center justify-between text-sm'>
-              <span className='font-bold ws-heading'>Concluído</span>
+              <span className='font-bold ws-heading'>
+                {t('todayRoutine.completed')}
+              </span>
               <span className='font-black ws-heading'>0%</span>
             </div>
 
@@ -265,7 +303,7 @@ export default async function DashboardPage() {
               className='h-11 w-full rounded-2xl border ws-border ws-surface-solid font-semibold ws-heading hover:bg-[var(--ws-primary-soft)] hover:text-[var(--ws-primary-text)]'
             >
               <Link href='/routine'>
-                Criar rotina
+                {t('todayRoutine.createRoutine')}
                 <ArrowUpRight className='ml-2 size-4' />
               </Link>
             </Button>
@@ -279,10 +317,10 @@ export default async function DashboardPage() {
             <div className='flex items-center justify-between gap-3'>
               <div>
                 <CardTitle className='text-xl font-black ws-heading'>
-                  Metas financeiras
+                  {t('financialGoals.title')}
                 </CardTitle>
                 <CardDescription className='ws-muted'>
-                  Suas metas simples aparecerão aqui.
+                  {t('financialGoals.description')}
                 </CardDescription>
               </div>
 
@@ -294,9 +332,11 @@ export default async function DashboardPage() {
 
           <CardContent className='space-y-4'>
             <div className='rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
-              <p className='text-sm font-bold ws-heading'>Nenhuma meta ativa</p>
+              <p className='text-sm font-bold ws-heading'>
+                {t('financialGoals.emptyTitle')}
+              </p>
               <p className='mt-1 text-sm leading-6 ws-muted'>
-                Crie sua primeira meta para acompanhar progresso e prazo.
+                {t('financialGoals.emptyDescription')}
               </p>
             </div>
 
@@ -306,7 +346,7 @@ export default async function DashboardPage() {
               className='h-11 w-full rounded-2xl border ws-border ws-surface-solid font-semibold ws-heading hover:bg-[var(--ws-primary-soft)] hover:text-[var(--ws-primary-text)]'
             >
               <Link href='/goals'>
-                Criar meta
+                {t('financialGoals.createGoal')}
                 <ArrowUpRight className='ml-2 size-4' />
               </Link>
             </Button>
@@ -316,10 +356,10 @@ export default async function DashboardPage() {
         <Card className='rounded-[2rem] border ws-border ws-primary shadow-xl'>
           <CardHeader>
             <CardTitle className='text-xl font-black'>
-              Próximos passos da V1
+              {t('v1NextSteps.title')}
             </CardTitle>
             <CardDescription className='opacity-75'>
-              Complete essa base para liberar o dashboard real com dados.
+              {t('v1NextSteps.description')}
             </CardDescription>
           </CardHeader>
 
@@ -333,7 +373,9 @@ export default async function DashboardPage() {
                   {index + 1}
                 </div>
 
-                <p className='text-sm font-semibold'>{step}</p>
+                <p className='text-sm font-semibold'>
+                  {t(`v1NextSteps.items.${step}`)}
+                </p>
 
                 <CheckCircle2 className='ml-auto size-5 opacity-40' />
               </div>

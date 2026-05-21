@@ -165,6 +165,61 @@
       "accessStep": "访问"
     }
   },
+  "Dashboard": {
+    "badge": "初始仪表盘",
+    "title": "你的 WstSide 面板",
+    "newRecord": "新增记录",
+    "cards": {
+      "currentAssets": {
+        "label": "当前资产",
+        "description": "从登记你的账户、储备金或投资开始。"
+      },
+      "monthIncome": {
+        "label": "本月收入",
+        "description": "财务收入将显示在这里。"
+      },
+      "monthExpenses": {
+        "label": "本月支出",
+        "description": "财务支出将显示在这里。"
+      },
+      "streak": {
+        "label": "连续完成天数",
+        "value": "{count} 天",
+        "description": "当你的日程启用后，连续记录将从这里开始。"
+      }
+    },
+    "monthlySummary": {
+      "title": "月度摘要",
+      "description": "你的财务流动初始视图。",
+      "balance": "本月余额",
+      "savings": "储蓄",
+      "records": "记录"
+    },
+    "todayRoutine": {
+      "title": "今日日程",
+      "description": "主要习惯的每日进度。",
+      "completed": "已完成",
+      "createRoutine": "创建日程"
+    },
+    "financialGoals": {
+      "title": "财务目标",
+      "description": "你的简单目标将显示在这里。",
+      "emptyTitle": "暂无有效目标",
+      "emptyDescription": "创建你的第一个目标，用来跟踪进度和期限。",
+      "createGoal": "创建目标"
+    },
+    "v1NextSteps": {
+      "title": "V1 的下一步",
+      "description": "完成这个基础后，即可解锁带有真实数据的仪表盘。",
+      "items": {
+        "registerCurrentAssets": "登记你的当前资产",
+        "registerFirstIncome": "登记第一笔收入",
+        "registerFirstExpense": "登记第一笔支出",
+        "createFinancialGoal": "创建一个财务目标",
+        "buildDailyRoutine": "建立你的每日日程"
+      }
+    }
+  },
   "NotFound": {
     "title": "页面未找到",
     "description": "你尝试访问的路径不存在，或已被移动。",
