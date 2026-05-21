@@ -118,6 +118,28 @@
       "linkStep": "链接",
       "passwordStep": "密码",
       "accessStep": "访问"
+    },
+    "signUpSuccess": {
+      "badge": "快完成了",
+      "title": "确认你的邮箱",
+      "description": "你的账户已创建。现在请确认邮箱，以解锁 WstSide 的访问权限。",
+      "inboxTitle": "检查你的收件箱",
+      "inboxDescription": "我们已向注册邮箱发送确认链接。请点击链接，在登录前激活你的账户。",
+      "notFoundTitle": "没有找到邮件？",
+      "notFoundDescription": "请检查促销、垃圾邮件或回收站。根据邮箱服务商不同，邮件可能需要几分钟才能到达。",
+      "goToLogin": "前往登录",
+      "wrongEmail": "使用了错误的邮箱？",
+      "createAnotherAccount": "创建另一个账户",
+      "heroBadge": "账户已创建",
+      "heroTitle": "你的个人系统已经迈出第一步。",
+      "heroDescription": "确认邮箱后，开始构建你的财务、日程、目标和成长中心。",
+      "footer": "确认后，你将能够访问个人面板。",
+      "nextStepEyebrow": "下一步",
+      "nextStepTitle": "激活你的账户",
+      "nextStepDescription": "确认邮箱后，你将能够进入 WstSide 的私有环境。",
+      "accountStep": "账户",
+      "emailStep": "邮箱",
+      "accessStep": "访问"
     }
   },
   "Sidebar": {

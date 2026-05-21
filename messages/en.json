@@ -118,6 +118,28 @@
       "linkStep": "Link",
       "passwordStep": "Password",
       "accessStep": "Access"
+    },
+    "signUpSuccess": {
+      "badge": "Almost there",
+      "title": "Confirm your email",
+      "description": "Your account has been created. Now confirm your email to unlock access to WstSide.",
+      "inboxTitle": "Check your inbox",
+      "inboxDescription": "We sent a confirmation link to your registered email. Click the link to activate your account before signing in.",
+      "notFoundTitle": "Didn't find the email?",
+      "notFoundDescription": "Check promotions, spam or trash. Delivery may take a few minutes depending on your provider.",
+      "goToLogin": "Go to login",
+      "wrongEmail": "Used the wrong email?",
+      "createAnotherAccount": "Create another account",
+      "heroBadge": "Account created",
+      "heroTitle": "The first step of your personal system is done.",
+      "heroDescription": "Confirm your email and start building your center for finances, routine, goals and progress.",
+      "footer": "After confirmation, you'll be able to access your personal panel.",
+      "nextStepEyebrow": "Next step",
+      "nextStepTitle": "Activate your account",
+      "nextStepDescription": "After confirming your email, you'll be allowed to enter WstSide's private environment.",
+      "accountStep": "Account",
+      "emailStep": "Email",
+      "accessStep": "Access"
     }
   },
   "Sidebar": {

@@ -118,6 +118,28 @@
       "linkStep": "Enlace",
       "passwordStep": "Contraseña",
       "accessStep": "Acceso"
+    },
+    "signUpSuccess": {
+      "badge": "Casi listo",
+      "title": "Confirma tu correo",
+      "description": "Tu cuenta fue creada. Ahora falta confirmar tu correo para liberar el acceso a WstSide.",
+      "inboxTitle": "Revisa tu bandeja de entrada",
+      "inboxDescription": "Enviamos un enlace de confirmación al correo registrado. Haz clic en el enlace para activar tu cuenta antes de iniciar sesión.",
+      "notFoundTitle": "¿No encontraste el correo?",
+      "notFoundDescription": "Revisa promociones, spam o papelera. El envío puede tardar algunos minutos dependiendo del proveedor.",
+      "goToLogin": "Ir al login",
+      "wrongEmail": "¿Usaste el correo incorrecto?",
+      "createAnotherAccount": "Crear otra cuenta",
+      "heroBadge": "Cuenta creada",
+      "heroTitle": "El primer paso de tu sistema personal ya fue dado.",
+      "heroDescription": "Confirma tu correo y empieza a construir tu central de finanzas, rutina, metas y evolución.",
+      "footer": "Después de la confirmación, podrás acceder a tu panel personal.",
+      "nextStepEyebrow": "Próxima etapa",
+      "nextStepTitle": "Activar tu cuenta",
+      "nextStepDescription": "Después de confirmar el correo, podrás entrar al ambiente privado de WstSide.",
+      "accountStep": "Cuenta",
+      "emailStep": "Correo",
+      "accessStep": "Acceso"
     }
   },
   "Sidebar": {
