@@ -79,7 +79,17 @@
       "notFoundTitle": "没有找到邮件？",
       "notFoundDescription": "请检查收件箱、促销、垃圾邮件或回收站。邮件可能需要几分钟才能到达。",
       "backToLogin": "返回登录",
-      "sendToAnotherEmail": "发送到其他邮箱"
+      "sendToAnotherEmail": "发送到其他邮箱",
+      "heroBadge": "访问恢复",
+      "heroTitle": "重新掌控你的日程。",
+      "heroDescription": "请求一个安全链接来重置密码，并继续正常使用 WstSide。",
+      "footer": "恢复访问权限，回到你的个人面板。",
+      "securityEyebrow": "安全",
+      "securityTitle": "邮件链接",
+      "securityDescription": "你将收到一个安全创建新密码的链接。",
+      "accountStep": "账户",
+      "emailStep": "邮箱",
+      "passwordStep": "密码"
     }
   },
   "Sidebar": {

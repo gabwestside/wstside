@@ -79,7 +79,17 @@
       "notFoundTitle": "Não encontrou?",
       "notFoundDescription": "Confira sua caixa de entrada, promoções, spam ou lixo eletrônico. O e-mail pode levar alguns minutos para chegar.",
       "backToLogin": "Voltar para login",
-      "sendToAnotherEmail": "Enviar para outro e-mail"
+      "sendToAnotherEmail": "Enviar para outro e-mail",
+      "heroBadge": "Recuperação de acesso",
+      "heroTitle": "Volte para o controle da sua rotina.",
+      "heroDescription": "Solicite um link seguro para redefinir sua senha e continuar usando o WstSide normalmente.",
+      "footer": "Recupere seu acesso e volte para seu painel pessoal.",
+      "securityEyebrow": "Segurança",
+      "securityTitle": "Link por e-mail",
+      "securityDescription": "Você receberá um link para criar uma nova senha com segurança.",
+      "accountStep": "Conta",
+      "emailStep": "E-mail",
+      "passwordStep": "Senha"
     }
   },
   "Sidebar": {

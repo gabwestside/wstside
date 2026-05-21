@@ -79,7 +79,17 @@
       "notFoundTitle": "Didn't find it?",
       "notFoundDescription": "Check your inbox, promotions, spam or trash. The email may take a few minutes to arrive.",
       "backToLogin": "Back to login",
-      "sendToAnotherEmail": "Send to another email"
+      "sendToAnotherEmail": "Send to another email",
+      "heroBadge": "Access recovery",
+      "heroTitle": "Get back in control of your routine.",
+      "heroDescription": "Request a secure link to reset your password and continue using WstSide normally.",
+      "footer": "Recover your access and return to your personal panel.",
+      "securityEyebrow": "Security",
+      "securityTitle": "Email link",
+      "securityDescription": "You'll receive a link to create a new password securely.",
+      "accountStep": "Account",
+      "emailStep": "Email",
+      "passwordStep": "Password"
     }
   },
   "Sidebar": {

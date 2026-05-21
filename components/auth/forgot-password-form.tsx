@@ -9,7 +9,7 @@ import {
   ShieldCheck,
 } from 'lucide-react'
 import { motion } from 'motion/react'
-import Link from 'next/link'
+import { useLocale, useTranslations } from 'next-intl'
 import { useState } from 'react'
 
 import { Alert, AlertDescription } from '@/components/ui/alert'
@@ -23,23 +23,24 @@ import {
 } from '@/components/ui/card'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { Link } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
 import { createClient } from '@/lib/supabase/client'
 import { cn } from '@/lib/utils'
+
+function getLocalizedUpdatePasswordUrl(origin: string, locale: string) {
+  const localePrefix = locale === routing.defaultLocale ? '' : `/${locale}`
+
+  return `${origin}${localePrefix}/auth/update-password`
+}
 
 export function ForgotPasswordForm({
   className,
   ...props
-}: Omit<
-  React.ComponentPropsWithoutRef<'div'>,
-  | 'onAnimationStart'
-  | 'onDrag'
-  | 'onDragEnd'
-  | 'onDragStart'
-  | 'onDragEnter'
-  | 'onDragOver'
-  | 'onDragLeave'
-  | 'onDrop'
->) {
+}: React.ComponentPropsWithoutRef<typeof motion.div>) {
+  const locale = useLocale()
+  const t = useTranslations('Auth.forgotPassword')
+
   const [email, setEmail] = useState('')
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
@@ -54,7 +55,7 @@ export function ForgotPasswordForm({
     setError(null)
 
     if (!trimmedEmail) {
-      setError('Informe seu e-mail para continuar.')
+      setError(t('emailRequired'))
       setIsLoading(false)
       return
     }
@@ -65,7 +66,10 @@ export function ForgotPasswordForm({
       const { error } = await supabase.auth.resetPasswordForEmail(
         trimmedEmail,
         {
-          redirectTo: `${window.location.origin}/auth/update-password`,
+          redirectTo: getLocalizedUpdatePasswordUrl(
+            window.location.origin,
+            locale,
+          ),
         },
       )
 
@@ -75,9 +79,7 @@ export function ForgotPasswordForm({
 
       setSuccess(true)
     } catch {
-      setError(
-        'Não foi possível enviar o e-mail de recuperação agora. Verifique o e-mail e tente novamente.',
-      )
+      setError(t('genericError'))
     } finally {
       setIsLoading(false)
     }
@@ -100,17 +102,17 @@ export function ForgotPasswordForm({
               </div>
 
               <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
-                Enviado
+                {t('successBadge')}
               </div>
             </div>
 
             <div className='space-y-2'>
               <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
-                Verifique seu e-mail
+                {t('successTitle')}
               </CardTitle>
 
               <CardDescription className='text-base leading-relaxed ws-muted'>
-                Enviamos as instruções para redefinir sua senha.
+                {t('successDescription')}
               </CardDescription>
             </div>
           </CardHeader>
@@ -124,22 +126,22 @@ export function ForgotPasswordForm({
 
                 <div className='space-y-1'>
                   <p className='font-bold ws-heading'>
-                    Link de recuperação solicitado
+                    {t('successCardTitle')}
                   </p>
                   <p className='text-sm leading-6 ws-muted'>
-                    Se o e-mail informado estiver cadastrado, você receberá um
-                    link para criar uma nova senha.
+                    {t('successCardDescription')}
                   </p>
                 </div>
               </div>
             </div>
 
             <div className='space-y-3 rounded-[1.5rem] border ws-border ws-surface-muted p-5'>
-              <p className='text-sm font-bold ws-heading'>Não encontrou?</p>
+              <p className='text-sm font-bold ws-heading'>
+                {t('notFoundTitle')}
+              </p>
 
               <p className='text-sm leading-6 ws-muted'>
-                Confira sua caixa de entrada, promoções, spam ou lixo
-                eletrônico. O e-mail pode levar alguns minutos para chegar.
+                {t('notFoundDescription')}
               </p>
             </div>
 
@@ -148,7 +150,7 @@ export function ForgotPasswordForm({
               className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition'
             >
               <Link href='/auth/login'>
-                Voltar para login
+                {t('backToLogin')}
                 <ArrowRight className='ml-2 size-4' />
               </Link>
             </Button>
@@ -159,7 +161,7 @@ export function ForgotPasswordForm({
               className='mx-auto flex items-center justify-center text-sm font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
             >
               <ArrowLeft className='mr-2 size-4' />
-              Enviar para outro e-mail
+              {t('sendToAnotherEmail')}
             </button>
           </CardContent>
         </Card>
@@ -183,18 +185,17 @@ export function ForgotPasswordForm({
             </div>
 
             <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
-              Recuperar
+              {t('badge')}
             </div>
           </div>
 
           <div className='space-y-2'>
             <CardTitle className='text-3xl font-black tracking-tight ws-heading'>
-              Redefinir senha
+              {t('title')}
             </CardTitle>
 
             <CardDescription className='text-base leading-relaxed ws-muted'>
-              Informe seu e-mail e enviaremos um link para você criar uma nova
-              senha.
+              {t('description')}
             </CardDescription>
           </div>
         </CardHeader>
@@ -220,7 +221,7 @@ export function ForgotPasswordForm({
                 htmlFor='email'
                 className='text-sm font-semibold ws-heading'
               >
-                E-mail
+                {t('email')}
               </Label>
 
               <div className='relative'>
@@ -229,7 +230,7 @@ export function ForgotPasswordForm({
                   id='email'
                   name='email'
                   type='email'
-                  placeholder='seu@email.com'
+                  placeholder={t('emailPlaceholder')}
                   required
                   autoComplete='email'
                   value={email}
@@ -244,27 +245,27 @@ export function ForgotPasswordForm({
               disabled={isLoading}
               className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg transition disabled:cursor-not-allowed disabled:opacity-70'
             >
-              {isLoading ? 'Enviando...' : 'Enviar link de recuperação'}
+              {isLoading ? t('submitting') : t('submit')}
               {!isLoading && <ArrowRight className='ml-2 size-4' />}
             </Button>
 
             <div className='pt-2 text-center text-sm ws-muted'>
-              Lembrou sua senha?{' '}
+              {t('remembered')}{' '}
               <Link
                 href='/auth/login'
                 className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
-                Entrar
+                {t('login')}
               </Link>
             </div>
 
             <div className='text-center text-sm ws-muted'>
-              Ainda não tem conta?{' '}
+              {t('noAccount')}{' '}
               <Link
                 href='/auth/sign-up'
                 className='font-semibold text-[var(--ws-primary-text)] underline-offset-4 hover:underline'
               >
-                Criar conta
+                {t('createAccount')}
               </Link>
             </div>
           </form>
