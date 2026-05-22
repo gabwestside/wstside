@@ -220,6 +220,62 @@
       }
     }
   },
+  "Finances": {
+    "badge": "Finanzas",
+    "title": "Máquina de capital",
+    "description": "Registra tu patrimonio actual para que WstSide comience a mapear tu base financiera.",
+    "loadError": {
+      "title": "No fue posible cargar tus datos",
+      "description": "Intenta actualizar la página o entrar nuevamente."
+    },
+    "cards": {
+      "totalPatrimony": {
+        "label": "Patrimonio total",
+        "description": "Suma de todos los activos registrados."
+      },
+      "registeredItems": {
+        "label": "Elementos registrados",
+        "description": "Cuentas, reservas e inversiones."
+      },
+      "reserve": {
+        "label": "Reserva",
+        "description": "Total marcado como reserva."
+      },
+      "investments": {
+        "label": "Inversiones",
+        "description": "Total marcado como inversión."
+      }
+    },
+    "registeredPatrimony": {
+      "title": "Patrimonio registrado",
+      "description": "Lista de activos que componen tu patrimonio actual."
+    },
+    "accountForm": {
+      "badge": "Patrimonio",
+      "title": "Registrar patrimonio actual",
+      "description": "Registra cuentas, reservas, inversiones o cualquier valor que componga tu patrimonio.",
+      "name": "Nombre",
+      "namePlaceholder": "Ej: Nubank, Reserva, Tesoro Directo",
+      "type": "Tipo",
+      "typePlaceholder": "Selecciona una categoría",
+      "balance": "Valor actual",
+      "balancePlaceholder": "Ej: 2500,00",
+      "submit": "Registrar patrimonio",
+      "submitting": "Guardando..."
+    },
+    "accountTypes": {
+      "checkingAccount": "Cuenta corriente",
+      "reserve": "Reserva",
+      "investment": "Inversión",
+      "cash": "Dinero físico",
+      "other": "Otro"
+    },
+    "accountsList": {
+      "emptyTitle": "Ningún patrimonio registrado",
+      "emptyDescription": "Registra tu primera cuenta, reserva o inversión para iniciar tu máquina de capital.",
+      "deleteAccountAria": "Eliminar {name}"
+    }
+  },
   "NotFound": {
     "title": "Página no encontrada",
     "description": "La ruta que intentaste acceder no existe o fue movida.",

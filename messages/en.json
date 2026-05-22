@@ -220,6 +220,62 @@
       }
     }
   },
+  "Finances": {
+    "badge": "Finances",
+    "title": "Capital machine",
+    "description": "Register your current assets so WstSide can start mapping your financial base.",
+    "loadError": {
+      "title": "We couldn't load your data",
+      "description": "Try refreshing the page or signing in again."
+    },
+    "cards": {
+      "totalPatrimony": {
+        "label": "Total assets",
+        "description": "Sum of all registered assets."
+      },
+      "registeredItems": {
+        "label": "Registered items",
+        "description": "Accounts, reserves and investments."
+      },
+      "reserve": {
+        "label": "Reserve",
+        "description": "Total marked as reserve."
+      },
+      "investments": {
+        "label": "Investments",
+        "description": "Total marked as investment."
+      }
+    },
+    "registeredPatrimony": {
+      "title": "Registered assets",
+      "description": "List of assets that compose your current patrimony."
+    },
+    "accountForm": {
+      "badge": "Assets",
+      "title": "Register current assets",
+      "description": "Register accounts, reserves, investments or any value that composes your patrimony.",
+      "name": "Name",
+      "namePlaceholder": "Ex: Nubank, Reserve, Treasury bonds",
+      "type": "Type",
+      "typePlaceholder": "Select a category",
+      "balance": "Current value",
+      "balancePlaceholder": "Ex: 2500.00",
+      "submit": "Register asset",
+      "submitting": "Saving..."
+    },
+    "accountTypes": {
+      "checkingAccount": "Checking account",
+      "reserve": "Reserve",
+      "investment": "Investment",
+      "cash": "Physical cash",
+      "other": "Other"
+    },
+    "accountsList": {
+      "emptyTitle": "No assets registered",
+      "emptyDescription": "Register your first account, reserve or investment to start your capital machine.",
+      "deleteAccountAria": "Delete {name}"
+    }
+  },
   "NotFound": {
     "title": "Page not found",
     "description": "The route you tried to access does not exist or was moved.",

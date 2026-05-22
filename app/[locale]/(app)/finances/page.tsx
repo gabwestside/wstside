@@ -5,7 +5,9 @@ import {
   PiggyBank,
   WalletCards,
 } from 'lucide-react'
-import { redirect } from 'next/navigation'
+import { hasLocale } from 'next-intl'
+import { getTranslations } from 'next-intl/server'
+import { connection } from 'next/server'
 
 import { FinancialAccountForm } from '@/components/finances/financial-account-form'
 import {
@@ -20,10 +22,37 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card'
-import { formatCurrency } from '@/lib/formatters'
+import { redirect } from '@/i18n/navigation'
+import { routing } from '@/i18n/routing'
 import { createClient } from '@/lib/supabase/server'
 
-export default async function FinancesPage() {
+type FinancesPageProps = {
+  params: Promise<{
+    locale: string
+  }>
+}
+
+export default async function FinancesPage({ params }: FinancesPageProps) {
+  await connection()
+
+  const { locale: rawLocale } = await params
+
+  const locale = hasLocale(routing.locales, rawLocale)
+    ? rawLocale
+    : routing.defaultLocale
+
+  const t = await getTranslations({
+    locale,
+    namespace: 'Finances',
+  })
+
+  const currencyFormatter = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
+  const formatCurrency = (value: number) => currencyFormatter.format(value)
+
   const supabase = await createClient()
 
   const {
@@ -32,13 +61,16 @@ export default async function FinancesPage() {
   } = await supabase.auth.getUser()
 
   if (userError || !user) {
-    redirect('/auth/login')
+    redirect({
+      href: '/auth/login',
+      locale,
+    })
   }
 
   const { data, error } = await supabase
     .from('financial_accounts')
     .select('id, name, type, balance, created_at')
-    .eq('user_id', user.id)
+    .eq('user_id', user?.id)
     .order('created_at', { ascending: false })
 
   const accounts = (data ?? []) as FinancialAccount[]
@@ -63,16 +95,16 @@ export default async function FinancesPage() {
       <section className='flex flex-col justify-between gap-4 lg:flex-row lg:items-end'>
         <div className='space-y-2'>
           <Badge className='rounded-full border ws-border ws-primary-soft px-3 py-1 hover:bg-[var(--ws-primary-soft)]'>
-            Finanças
+            {t('badge')}
           </Badge>
 
           <div>
             <h1 className='text-3xl font-black tracking-tight ws-heading sm:text-4xl'>
-              Máquina de capital
+              {t('title')}
             </h1>
+
             <p className='mt-2 max-w-2xl text-sm leading-6 ws-muted'>
-              Cadastre seu patrimônio atual para o WstSide começar a mapear sua
-              base financeira.
+              {t('description')}
             </p>
           </div>
         </div>
@@ -82,10 +114,11 @@ export default async function FinancesPage() {
         <Card className='rounded-[2rem] border ws-border ws-surface-muted shadow-xl'>
           <CardHeader>
             <CardTitle className='text-[var(--ws-danger)]'>
-              Não foi possível carregar seus dados
+              {t('loadError.title')}
             </CardTitle>
+
             <CardDescription className='text-[var(--ws-danger)] opacity-80'>
-              Tente atualizar a página ou entrar novamente.
+              {t('loadError.description')}
             </CardDescription>
           </CardHeader>
         </Card>
@@ -96,8 +129,9 @@ export default async function FinancesPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-primary-text)]'>
-                Patrimônio total
+                {t('cards.totalPatrimony.label')}
               </CardDescription>
+
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {formatCurrency(totalPatrimony)}
               </CardTitle>
@@ -110,7 +144,7 @@ export default async function FinancesPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Soma de todos os ativos cadastrados.
+              {t('cards.totalPatrimony.description')}
             </p>
           </CardContent>
         </Card>
@@ -119,8 +153,9 @@ export default async function FinancesPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-info)]'>
-                Itens cadastrados
+                {t('cards.registeredItems.label')}
               </CardDescription>
+
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {accountCount}
               </CardTitle>
@@ -140,7 +175,7 @@ export default async function FinancesPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Contas, reservas e investimentos.
+              {t('cards.registeredItems.description')}
             </p>
           </CardContent>
         </Card>
@@ -149,8 +184,9 @@ export default async function FinancesPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-warning)]'>
-                Reserva
+                {t('cards.reserve.label')}
               </CardDescription>
+
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {formatCurrency(reserveTotal)}
               </CardTitle>
@@ -170,7 +206,7 @@ export default async function FinancesPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Total marcado como reserva.
+              {t('cards.reserve.description')}
             </p>
           </CardContent>
         </Card>
@@ -179,8 +215,9 @@ export default async function FinancesPage() {
           <CardHeader className='flex flex-row items-start justify-between space-y-0 pb-3'>
             <div>
               <CardDescription className='font-bold uppercase tracking-wide text-[var(--ws-primary-text)]'>
-                Investimentos
+                {t('cards.investments.label')}
               </CardDescription>
+
               <CardTitle className='mt-2 text-3xl font-black ws-heading'>
                 {formatCurrency(investmentTotal)}
               </CardTitle>
@@ -193,7 +230,7 @@ export default async function FinancesPage() {
 
           <CardContent>
             <p className='text-sm leading-6 ws-muted'>
-              Total marcado como investimento.
+              {t('cards.investments.description')}
             </p>
           </CardContent>
         </Card>
@@ -207,10 +244,11 @@ export default async function FinancesPage() {
             <div className='flex items-center justify-between gap-3'>
               <div>
                 <CardTitle className='text-2xl font-black ws-heading'>
-                  Patrimônio cadastrado
+                  {t('registeredPatrimony.title')}
                 </CardTitle>
+
                 <CardDescription className='ws-muted'>
-                  Lista dos ativos que compõem seu patrimônio atual.
+                  {t('registeredPatrimony.description')}
                 </CardDescription>
               </div>
 

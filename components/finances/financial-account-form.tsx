@@ -1,6 +1,7 @@
 'use client'
 
 import { ArrowRight, Landmark, PiggyBank, WalletCards } from 'lucide-react'
+import { useTranslations } from 'next-intl'
 import { useActionState } from 'react'
 import { useFormStatus } from 'react-dom'
 
@@ -23,15 +24,31 @@ import { Label } from '@/components/ui/label'
 const initialState: FinancialAccountState = {}
 
 const accountTypes = [
-  'Conta corrente',
-  'Reserva',
-  'Investimento',
-  'Dinheiro físico',
-  'Outro',
-]
+  {
+    value: 'Conta corrente',
+    labelKey: 'checkingAccount',
+  },
+  {
+    value: 'Reserva',
+    labelKey: 'reserve',
+  },
+  {
+    value: 'Investimento',
+    labelKey: 'investment',
+  },
+  {
+    value: 'Dinheiro físico',
+    labelKey: 'cash',
+  },
+  {
+    value: 'Outro',
+    labelKey: 'other',
+  },
+] as const
 
 function SubmitButton() {
   const { pending } = useFormStatus()
+  const t = useTranslations('Finances.accountForm')
 
   return (
     <Button
@@ -39,13 +56,16 @@ function SubmitButton() {
       disabled={pending}
       className='h-12 w-full rounded-2xl ws-primary text-base font-semibold shadow-lg disabled:cursor-not-allowed disabled:opacity-70'
     >
-      {pending ? 'Salvando...' : 'Cadastrar patrimônio'}
+      {pending ? t('submitting') : t('submit')}
       {!pending && <ArrowRight className='ml-2 size-4' />}
     </Button>
   )
 }
 
 export function FinancialAccountForm() {
+  const t = useTranslations('Finances.accountForm')
+  const tAccountTypes = useTranslations('Finances.accountTypes')
+
   const [state, formAction] = useActionState(
     createFinancialAccountAction,
     initialState,
@@ -60,17 +80,17 @@ export function FinancialAccountForm() {
           </div>
 
           <div className='rounded-full border ws-border ws-primary-soft px-3 py-1 text-xs font-bold uppercase tracking-wide'>
-            Patrimônio
+            {t('badge')}
           </div>
         </div>
 
         <div>
           <CardTitle className='text-2xl font-black tracking-tight ws-heading'>
-            Cadastrar patrimônio atual
+            {t('title')}
           </CardTitle>
+
           <CardDescription className='mt-2 leading-6 ws-muted'>
-            Registre contas, reservas, investimentos ou qualquer valor que
-            componha seu patrimônio.
+            {t('description')}
           </CardDescription>
         </div>
       </CardHeader>
@@ -91,7 +111,7 @@ export function FinancialAccountForm() {
 
           <div className='space-y-2'>
             <Label htmlFor='name' className='font-semibold ws-heading'>
-              Nome
+              {t('name')}
             </Label>
 
             <div className='relative'>
@@ -99,7 +119,7 @@ export function FinancialAccountForm() {
               <Input
                 id='name'
                 name='name'
-                placeholder='Ex: Nubank, Reserva, Tesouro Direto'
+                placeholder={t('namePlaceholder')}
                 required
                 className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'
               />
@@ -108,7 +128,7 @@ export function FinancialAccountForm() {
 
           <div className='space-y-2'>
             <Label htmlFor='type' className='font-semibold ws-heading'>
-              Tipo
+              {t('type')}
             </Label>
 
             <select
@@ -119,11 +139,12 @@ export function FinancialAccountForm() {
               className='h-12 w-full rounded-2xl border ws-border ws-surface-muted px-4 text-base ws-heading outline-none transition focus:ring-2 focus:ring-[var(--ws-primary)]'
             >
               <option value='' disabled>
-                Selecione uma categoria
+                {t('typePlaceholder')}
               </option>
+
               {accountTypes.map((type) => (
-                <option key={type} value={type}>
-                  {type}
+                <option key={type.value} value={type.value}>
+                  {tAccountTypes(type.labelKey)}
                 </option>
               ))}
             </select>
@@ -131,7 +152,7 @@ export function FinancialAccountForm() {
 
           <div className='space-y-2'>
             <Label htmlFor='balance' className='font-semibold ws-heading'>
-              Valor atual
+              {t('balance')}
             </Label>
 
             <div className='relative'>
@@ -139,7 +160,7 @@ export function FinancialAccountForm() {
               <Input
                 id='balance'
                 name='balance'
-                placeholder='Ex: 2500,00'
+                placeholder={t('balancePlaceholder')}
                 required
                 inputMode='decimal'
                 className='h-12 rounded-2xl border ws-border ws-surface-muted pl-11 text-base shadow-none placeholder:text-[var(--ws-muted)] focus-visible:ring-[var(--ws-primary)]'

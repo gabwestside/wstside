@@ -1,9 +1,9 @@
 import { Trash2, WalletCards } from 'lucide-react'
+import { getLocale, getTranslations } from 'next-intl/server'
 
 import { deleteFinancialAccountAction } from '@/app/[locale]/(app)/finances/actions'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { formatCurrency } from '@/lib/formatters'
 
 export type FinancialAccount = {
   id: string
@@ -17,9 +17,41 @@ type FinancialAccountsListProps = {
   accounts: FinancialAccount[]
 }
 
-export function FinancialAccountsList({
+function getAccountTypeLabel(
+  type: string,
+  tAccountTypes: Awaited<ReturnType<typeof getTranslations>>,
+) {
+  const accountTypeMap: Record<string, string> = {
+    'Conta corrente': 'checkingAccount',
+    Reserva: 'reserve',
+    Investimento: 'investment',
+    'Dinheiro físico': 'cash',
+    Outro: 'other',
+  }
+
+  const labelKey = accountTypeMap[type]
+
+  if (!labelKey) {
+    return type
+  }
+
+  return tAccountTypes(labelKey)
+}
+
+export async function FinancialAccountsList({
   accounts,
 }: FinancialAccountsListProps) {
+  const locale = await getLocale()
+  const t = await getTranslations('Finances.accountsList')
+  const tAccountTypes = await getTranslations('Finances.accountTypes')
+
+  const currencyFormatter = new Intl.NumberFormat(locale, {
+    style: 'currency',
+    currency: 'BRL',
+  })
+
+  const formatCurrency = (value: number) => currencyFormatter.format(value)
+
   if (accounts.length === 0) {
     return (
       <div className='rounded-[2rem] border border-dashed ws-border ws-surface-muted p-8 text-center'>
@@ -28,12 +60,11 @@ export function FinancialAccountsList({
         </div>
 
         <h3 className='mt-4 text-lg font-black ws-heading'>
-          Nenhum patrimônio cadastrado
+          {t('emptyTitle')}
         </h3>
 
         <p className='mt-2 text-sm leading-6 ws-muted'>
-          Cadastre sua primeira conta, reserva ou investimento para iniciar sua
-          máquina de capital.
+          {t('emptyDescription')}
         </p>
       </div>
     )
@@ -54,7 +85,7 @@ export function FinancialAccountsList({
                 variant='outline'
                 className='rounded-full border ws-border ws-surface-solid text-[var(--ws-primary-text)]'
               >
-                {account.type}
+                {getAccountTypeLabel(account.type, tAccountTypes)}
               </Badge>
             </div>
 
@@ -71,7 +102,9 @@ export function FinancialAccountsList({
               variant='ghost'
               size='icon'
               className='size-10 rounded-2xl ws-muted transition hover:bg-[color-mix(in_srgb,var(--ws-danger)_12%,transparent)] hover:text-[var(--ws-danger)]'
-              aria-label={`Excluir ${account.name}`}
+              aria-label={t('deleteAccountAria', {
+                name: account.name,
+              })}
             >
               <Trash2 className='size-4' />
             </Button>

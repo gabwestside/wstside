@@ -220,6 +220,62 @@
       }
     }
   },
+  "Finances": {
+    "badge": "财务",
+    "title": "资本机器",
+    "description": "登记你的当前资产，让 WstSide 开始映射你的财务基础。",
+    "loadError": {
+      "title": "无法加载你的数据",
+      "description": "请尝试刷新页面或重新登录。"
+    },
+    "cards": {
+      "totalPatrimony": {
+        "label": "总资产",
+        "description": "所有已登记资产的总和。"
+      },
+      "registeredItems": {
+        "label": "已登记项目",
+        "description": "账户、储备金和投资。"
+      },
+      "reserve": {
+        "label": "储备金",
+        "description": "标记为储备金的总额。"
+      },
+      "investments": {
+        "label": "投资",
+        "description": "标记为投资的总额。"
+      }
+    },
+    "registeredPatrimony": {
+      "title": "已登记资产",
+      "description": "组成你当前资产的项目列表。"
+    },
+    "accountForm": {
+      "badge": "资产",
+      "title": "登记当前资产",
+      "description": "登记账户、储备金、投资或任何组成你资产的金额。",
+      "name": "名称",
+      "namePlaceholder": "例如：Nubank、储备金、国债",
+      "type": "类型",
+      "typePlaceholder": "选择一个分类",
+      "balance": "当前金额",
+      "balancePlaceholder": "例如：2500.00",
+      "submit": "登记资产",
+      "submitting": "正在保存..."
+    },
+    "accountTypes": {
+      "checkingAccount": "活期账户",
+      "reserve": "储备金",
+      "investment": "投资",
+      "cash": "现金",
+      "other": "其他"
+    },
+    "accountsList": {
+      "emptyTitle": "暂无已登记资产",
+      "emptyDescription": "登记你的第一个账户、储备金或投资，开始建立你的资本机器。",
+      "deleteAccountAria": "删除 {name}"
+    }
+  },
   "NotFound": {
     "title": "页面未找到",
     "description": "你尝试访问的路径不存在，或已被移动。",
