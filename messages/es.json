@@ -166,58 +166,66 @@
     }
   },
   "Dashboard": {
-    "badge": "Dashboard inicial",
-    "title": "Tu panel WstSide",
-    "newRecord": "Nuevo registro",
-    "cards": {
-      "currentAssets": {
-        "label": "Patrimonio actual",
-        "description": "Comienza registrando tus cuentas, reservas o inversiones."
-      },
-      "monthIncome": {
-        "label": "Ingresos del mes",
-        "description": "Las entradas financieras aparecerán aquí."
-      },
-      "monthExpenses": {
-        "label": "Gastos del mes",
-        "description": "Las salidas financieras aparecerán aquí."
-      },
-      "streak": {
-        "label": "Días invicto",
-        "value": "{count} días",
-        "description": "Tu racha comienza cuando la rutina esté activa."
+    "hero": {
+      "badge": "WstSide OS",
+      "greeting": "¡Hola, {name}!"
+    },
+    "capital": {
+      "title": "Máquina de capital",
+      "positiveDescription": "Patrimonio positivo. ¡Sigue creciendo!",
+      "emptyDescription": "Registra tu patrimonio para iniciar tu máquina de capital.",
+      "badge": "En crecimiento"
+    },
+    "streak": {
+      "title": "Días invicto",
+      "value": "{count} días",
+      "description": "Completa tus tareas hoy y comienza tu racha imparable."
+    },
+    "dayDomain": {
+      "title": "Dominio del día",
+      "description": "El control está en tus manos. Cumple tus misiones."
+    },
+    "overview": {
+      "title": "Visión general",
+      "description": "Mapeo multidimensional de rendimiento.",
+      "period": "Mensual",
+      "metrics": {
+        "financial": "Financiero",
+        "discipline": "Disciplina",
+        "physical": "Físico",
+        "wstia": "WstIA"
       }
     },
-    "monthlySummary": {
-      "title": "Resumen mensual",
-      "description": "Vista inicial de tu flujo financiero.",
-      "balance": "Saldo del mes",
-      "savings": "Ahorro",
-      "records": "Registros"
-    },
-    "todayRoutine": {
-      "title": "Rutina de hoy",
-      "description": "Progreso diario de los hábitos principales.",
-      "completed": "Completado",
-      "createRoutine": "Crear rutina"
-    },
-    "financialGoals": {
-      "title": "Metas financieras",
-      "description": "Tus metas simples aparecerán aquí.",
-      "emptyTitle": "Ninguna meta activa",
-      "emptyDescription": "Crea tu primera meta para acompañar progreso y plazo.",
-      "createGoal": "Crear meta"
-    },
-    "v1NextSteps": {
-      "title": "Próximos pasos de la V1",
-      "description": "Completa esta base para liberar el dashboard real con datos.",
-      "items": {
-        "registerCurrentAssets": "Registrar tu patrimonio actual",
-        "registerFirstIncome": "Registrar tu primer ingreso",
-        "registerFirstExpense": "Registrar tu primer gasto",
-        "createFinancialGoal": "Crear una meta financiera",
-        "buildDailyRoutine": "Montar tu rutina diaria"
+    "dreams": {
+      "title": "Mis sueños",
+      "emptyTitle": "Sin objetivos activos",
+      "emptyDescription": "Define tu primer gran hito financiero para empezar a rastrear tu progreso hacia la libertad.",
+      "action": "Empezar sueño",
+      "suggestionsTitle": "Sugerencias WstIA",
+      "suggestions": {
+        "emergencyReserve": {
+          "title": "Reserva de emergencia",
+          "description": "6 meses de costo fijo"
+        },
+        "vacation": {
+          "title": "Viaje de vacaciones",
+          "description": "Objetivo de corto plazo"
+        }
       }
+    },
+    "recentFlow": {
+      "title": "Flujo reciente",
+      "viewAll": "Ver todo",
+      "emptyTitle": "Aún no hay flujo registrado",
+      "emptyDescription": "Cuando registres ingresos, gastos o patrimonio, los eventos más recientes aparecerán aquí.",
+      "accountRecord": "Patrimonio registrado"
+    },
+    "wstia": {
+      "badge": "Consejo WstIA",
+      "title": "La regla 50/30/20",
+      "descriptionEmpty": "Divide tu ingreso neto en 50% necesidades, 30% deseos y 20% deudas o ahorro. Empieza registrando tu patrimonio para que WstIA personalice tus próximos consejos.",
+      "descriptionWithCapital": "Ya mapeaste {amount} en patrimonio. El siguiente paso es organizar tu ingreso mensual usando la regla 50/30/20 para mejorar tu previsibilidad financiera.",
+      "action": "Ajustar presupuesto"
     }
   },
   "Finances": {

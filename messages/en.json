@@ -166,58 +166,66 @@
     }
   },
   "Dashboard": {
-    "badge": "Initial dashboard",
-    "title": "Your WstSide panel",
-    "newRecord": "New record",
-    "cards": {
-      "currentAssets": {
-        "label": "Current assets",
-        "description": "Start by registering your accounts, reserves or investments."
-      },
-      "monthIncome": {
-        "label": "Monthly income",
-        "description": "Financial inflows will appear here."
-      },
-      "monthExpenses": {
-        "label": "Monthly expenses",
-        "description": "Financial outflows will appear here."
-      },
-      "streak": {
-        "label": "Undefeated days",
-        "value": "{count} days",
-        "description": "Your streak starts when your routine is active."
+    "hero": {
+      "badge": "WstSide OS",
+      "greeting": "Hello, {name}!"
+    },
+    "capital": {
+      "title": "Capital machine",
+      "positiveDescription": "Positive assets. Keep growing!",
+      "emptyDescription": "Register your assets to start your capital machine.",
+      "badge": "Growing"
+    },
+    "streak": {
+      "title": "Undefeated days",
+      "value": "{count} days",
+      "description": "Complete your tasks today and start your unstoppable streak."
+    },
+    "dayDomain": {
+      "title": "Day domain",
+      "description": "Control is in your hands. Complete your missions."
+    },
+    "overview": {
+      "title": "Overview",
+      "description": "Multidimensional performance mapping.",
+      "period": "Monthly",
+      "metrics": {
+        "financial": "Financial",
+        "discipline": "Discipline",
+        "physical": "Physical",
+        "wstia": "WstIA"
       }
     },
-    "monthlySummary": {
-      "title": "Monthly summary",
-      "description": "Initial view of your financial flow.",
-      "balance": "Monthly balance",
-      "savings": "Savings",
-      "records": "Records"
-    },
-    "todayRoutine": {
-      "title": "Today's routine",
-      "description": "Daily progress of your main habits.",
-      "completed": "Completed",
-      "createRoutine": "Create routine"
-    },
-    "financialGoals": {
-      "title": "Financial goals",
-      "description": "Your simple goals will appear here.",
+    "dreams": {
+      "title": "My dreams",
       "emptyTitle": "No active goals",
-      "emptyDescription": "Create your first goal to track progress and deadline.",
-      "createGoal": "Create goal"
-    },
-    "v1NextSteps": {
-      "title": "Next steps for V1",
-      "description": "Complete this foundation to unlock the real dashboard with data.",
-      "items": {
-        "registerCurrentAssets": "Register your current assets",
-        "registerFirstIncome": "Register your first income",
-        "registerFirstExpense": "Register your first expense",
-        "createFinancialGoal": "Create a financial goal",
-        "buildDailyRoutine": "Build your daily routine"
+      "emptyDescription": "Define your first major financial milestone to start tracking your progress toward freedom.",
+      "action": "Start dream",
+      "suggestionsTitle": "WstIA suggestions",
+      "suggestions": {
+        "emergencyReserve": {
+          "title": "Emergency reserve",
+          "description": "6 months of fixed costs"
+        },
+        "vacation": {
+          "title": "Vacation trip",
+          "description": "Short-term goal"
+        }
       }
+    },
+    "recentFlow": {
+      "title": "Recent flow",
+      "viewAll": "View all",
+      "emptyTitle": "No flow registered yet",
+      "emptyDescription": "When you register income, expenses or assets, the latest events will appear here.",
+      "accountRecord": "Registered asset"
+    },
+    "wstia": {
+      "badge": "WstIA tip",
+      "title": "The 50/30/20 rule",
+      "descriptionEmpty": "Split your net income into 50% needs, 30% wants and 20% debt repayment or savings. Start by registering your assets so WstIA can personalize your next tips.",
+      "descriptionWithCapital": "You have already mapped {amount} in assets. The next step is organizing your monthly income with the 50/30/20 rule to improve your financial predictability.",
+      "action": "Adjust budget"
     }
   },
   "Finances": {

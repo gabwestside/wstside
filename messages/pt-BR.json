@@ -166,58 +166,66 @@
     }
   },
   "Dashboard": {
-    "badge": "Dashboard inicial",
-    "title": "Seu painel WstSide",
-    "newRecord": "Novo registro",
-    "cards": {
-      "currentAssets": {
-        "label": "Patrimônio atual",
-        "description": "Comece cadastrando suas contas, reservas ou investimentos."
-      },
-      "monthIncome": {
-        "label": "Receitas do mês",
-        "description": "Entradas financeiras aparecerão aqui."
-      },
-      "monthExpenses": {
-        "label": "Despesas do mês",
-        "description": "Saídas financeiras aparecerão aqui."
-      },
-      "streak": {
-        "label": "Dias invicto",
-        "value": "{count} dias",
-        "description": "Seu streak começa quando a rotina estiver ativa."
+    "hero": {
+      "badge": "WstSide OS",
+      "greeting": "Olá, {name}!"
+    },
+    "capital": {
+      "title": "Máquina de capital",
+      "positiveDescription": "Patrimônio positivo. Continue crescendo!",
+      "emptyDescription": "Cadastre seu patrimônio para iniciar sua máquina de capital.",
+      "badge": "Em crescimento"
+    },
+    "streak": {
+      "title": "Dias invicto",
+      "value": "{count} dias",
+      "description": "Zere suas tarefas hoje e comece sua escala imparável."
+    },
+    "dayDomain": {
+      "title": "Domínio do dia",
+      "description": "O controle está em suas mãos. Cumpra suas missões."
+    },
+    "overview": {
+      "title": "Visão geral",
+      "description": "Mapeamento multidimensional de performance.",
+      "period": "Mensal",
+      "metrics": {
+        "financial": "Financeiro",
+        "discipline": "Disciplina",
+        "physical": "Físico",
+        "wstia": "WstIA"
       }
     },
-    "monthlySummary": {
-      "title": "Resumo mensal",
-      "description": "Visão inicial do seu fluxo financeiro.",
-      "balance": "Saldo do mês",
-      "savings": "Economia",
-      "records": "Registros"
-    },
-    "todayRoutine": {
-      "title": "Rotina de hoje",
-      "description": "Progresso diário dos hábitos principais.",
-      "completed": "Concluído",
-      "createRoutine": "Criar rotina"
-    },
-    "financialGoals": {
-      "title": "Metas financeiras",
-      "description": "Suas metas simples aparecerão aqui.",
-      "emptyTitle": "Nenhuma meta ativa",
-      "emptyDescription": "Crie sua primeira meta para acompanhar progresso e prazo.",
-      "createGoal": "Criar meta"
-    },
-    "v1NextSteps": {
-      "title": "Próximos passos da V1",
-      "description": "Complete essa base para liberar o dashboard real com dados.",
-      "items": {
-        "registerCurrentAssets": "Cadastrar seu patrimônio atual",
-        "registerFirstIncome": "Registrar sua primeira receita",
-        "registerFirstExpense": "Registrar sua primeira despesa",
-        "createFinancialGoal": "Criar uma meta financeira",
-        "buildDailyRoutine": "Montar sua rotina diária"
+    "dreams": {
+      "title": "Meus sonhos",
+      "emptyTitle": "Sem objetivos ativos",
+      "emptyDescription": "Defina seu primeiro grande marco financeiro para começar a rastrear seu progresso rumo à liberdade.",
+      "action": "Começar sonho",
+      "suggestionsTitle": "Sugestões WstIA",
+      "suggestions": {
+        "emergencyReserve": {
+          "title": "Reserva de emergência",
+          "description": "6 meses de custo fixo"
+        },
+        "vacation": {
+          "title": "Viagem de férias",
+          "description": "Objetivo de curto prazo"
+        }
       }
+    },
+    "recentFlow": {
+      "title": "Fluxo recente",
+      "viewAll": "Ver tudo",
+      "emptyTitle": "Nenhum fluxo registrado ainda",
+      "emptyDescription": "Quando você cadastrar receitas, despesas ou patrimônio, os eventos mais recentes aparecerão aqui.",
+      "accountRecord": "Patrimônio cadastrado"
+    },
+    "wstia": {
+      "badge": "Dica WstIA",
+      "title": "A regra dos 50/30/20",
+      "descriptionEmpty": "Divida sua renda líquida em 50% necessidades, 30% desejos e 20% dívidas ou poupança. Comece cadastrando seu patrimônio para a WstIA personalizar suas próximas dicas.",
+      "descriptionWithCapital": "Você já mapeou {amount} em patrimônio. O próximo passo é organizar sua renda mensal usando a regra 50/30/20 para acelerar sua previsibilidade financeira.",
+      "action": "Ajustar orçamento"
     }
   },
   "Finances": {

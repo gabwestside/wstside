@@ -166,58 +166,66 @@
     }
   },
   "Dashboard": {
-    "badge": "初始仪表盘",
-    "title": "你的 WstSide 面板",
-    "newRecord": "新增记录",
-    "cards": {
-      "currentAssets": {
-        "label": "当前资产",
-        "description": "从登记你的账户、储备金或投资开始。"
-      },
-      "monthIncome": {
-        "label": "本月收入",
-        "description": "财务收入将显示在这里。"
-      },
-      "monthExpenses": {
-        "label": "本月支出",
-        "description": "财务支出将显示在这里。"
-      },
-      "streak": {
-        "label": "连续完成天数",
-        "value": "{count} 天",
-        "description": "当你的日程启用后，连续记录将从这里开始。"
+    "hero": {
+      "badge": "WstSide OS",
+      "greeting": "你好，{name}！"
+    },
+    "capital": {
+      "title": "资本机器",
+      "positiveDescription": "资产为正。继续成长！",
+      "emptyDescription": "登记你的资产，启动你的资本机器。",
+      "badge": "成长中"
+    },
+    "streak": {
+      "title": "连续完成天数",
+      "value": "{count} 天",
+      "description": "今天完成你的任务，开启不可阻挡的连续记录。"
+    },
+    "dayDomain": {
+      "title": "今日掌控",
+      "description": "掌控权在你手中。完成你的任务。"
+    },
+    "overview": {
+      "title": "总览",
+      "description": "多维度表现映射。",
+      "period": "每月",
+      "metrics": {
+        "financial": "财务",
+        "discipline": "纪律",
+        "physical": "身体",
+        "wstia": "WstIA"
       }
     },
-    "monthlySummary": {
-      "title": "月度摘要",
-      "description": "你的财务流动初始视图。",
-      "balance": "本月余额",
-      "savings": "储蓄",
-      "records": "记录"
-    },
-    "todayRoutine": {
-      "title": "今日日程",
-      "description": "主要习惯的每日进度。",
-      "completed": "已完成",
-      "createRoutine": "创建日程"
-    },
-    "financialGoals": {
-      "title": "财务目标",
-      "description": "你的简单目标将显示在这里。",
+    "dreams": {
+      "title": "我的梦想",
       "emptyTitle": "暂无有效目标",
-      "emptyDescription": "创建你的第一个目标，用来跟踪进度和期限。",
-      "createGoal": "创建目标"
-    },
-    "v1NextSteps": {
-      "title": "V1 的下一步",
-      "description": "完成这个基础后，即可解锁带有真实数据的仪表盘。",
-      "items": {
-        "registerCurrentAssets": "登记你的当前资产",
-        "registerFirstIncome": "登记第一笔收入",
-        "registerFirstExpense": "登记第一笔支出",
-        "createFinancialGoal": "创建一个财务目标",
-        "buildDailyRoutine": "建立你的每日日程"
+      "emptyDescription": "设定你的第一个重要财务里程碑，开始追踪通往自由的进度。",
+      "action": "开始梦想",
+      "suggestionsTitle": "WstIA 建议",
+      "suggestions": {
+        "emergencyReserve": {
+          "title": "应急储备金",
+          "description": "6 个月固定成本"
+        },
+        "vacation": {
+          "title": "假期旅行",
+          "description": "短期目标"
+        }
       }
+    },
+    "recentFlow": {
+      "title": "最近流动",
+      "viewAll": "查看全部",
+      "emptyTitle": "暂无已登记流动",
+      "emptyDescription": "当你登记收入、支出或资产后，最新事件会显示在这里。",
+      "accountRecord": "已登记资产"
+    },
+    "wstia": {
+      "badge": "WstIA 提示",
+      "title": "50/30/20 规则",
+      "descriptionEmpty": "将净收入分为 50% 必需支出、30% 想要支出和 20% 债务偿还或储蓄。先登记你的资产，让 WstIA 为你个性化下一步建议。",
+      "descriptionWithCapital": "你已经映射了 {amount} 的资产。下一步是用 50/30/20 规则整理你的月收入，提高财务可预测性。",
+      "action": "调整预算"
     }
   },
   "Finances": {
